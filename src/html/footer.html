@@ -1,0 +1,70 @@
+<footer class="footer">
+    <div class="footer__container container">
+        
+    </div>
+
+    <div id="callback-popup" class="callback-popup" uk-modal-full uk-modal>
+        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+
+            <form class="uk-form-stacked">
+                <div class="uk-modal-header">
+                    <p>Пожалуйста, заполните заявку</p>
+                </div>
+                <div class="uk-modal-body">
+                    <div class="uk-margin">
+                        <div class="uk-form-label">Ваше имя</div>
+                        <div class="uk-form-controls">
+                            <input type="text" name="NAME" class="uk-input" placeholder="Представьтесь, пожалуйста" required="">
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <div class="uk-form-label">Ваш телефон</div>
+                        <div class="uk-form-controls">
+                            <input type="text" name="PHONE" class="uk-input callback-popup__phone-input" placeholder="Телефон для связи" required="" inputmode="text">
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <div class="uk-form-label">Ваша эл. почта</div>
+                        <div class="uk-form-controls">
+                            <input type="text" name="EMAIL" class="uk-input" placeholder="Ваша Эл. почта">
+                        </div>
+                    </div>
+
+                    <div class="uk-margin">
+                        <div class="uk-form-label">Удобный метод связи</div>
+                        <div class="uk-form-controls">
+                        <select class="uk-select" name="TYPERECALL" required="">
+                            <option value="WhatsApp">WhatsApp</option>
+                            <option value="SMS">SMS</option>
+                            <option value="Звонок по телефону">Звонок по телефону</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <div class="uk-form-label">Доп. информация</div>
+                        <div class="uk-form-controls">
+                            <textarea name="INFO" class="uk-textarea" placeholder="Введите текст"></textarea>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <label class="callback-popup__policy-box">
+                            <input class="uk-checkbox callback-popup__policy-check" type="checkbox" required="">
+                            <span class="callback-popup__policy-text">Согласен на обработку персональных данных в соответствии с <a class="callback-popup__policy-link" href="/privacy-policy/">политикой конфиденциальности</a> сайта</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="uk-modal-footer uk-text-center">
+                    <button type="submit" class="default-btn callback-popup__submit-btn">Отправить заявку</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="callback-popup__success" class="callback-popup__success" uk-modal-full uk-modal>
+        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+            <div id="result-alert" class="uk-text-success"><p>Ваша заявка принята!</p><p>Спасибо за обращение.</p></div>
+        </div>
+    </div>
+</footer>

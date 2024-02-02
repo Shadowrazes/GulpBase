@@ -1,0 +1,41 @@
+.footer {
+    
+}
+
+.callback-popup{
+    z-index: 1050;
+
+    &__policy-box{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__policy-check{
+        flex-shrink: 0;
+    }
+
+    &__policy-check:checked{
+        background-color: rgba(255, 121, 31, 1) !important;
+    }
+
+    &__policy-link{
+        color: rgba(255, 121, 31, 1);
+    }
+
+    &__success{
+        z-index: 1050;
+    }
+}
+
+@include media($tablet){
+    .footer {
+        
+    }
+}
+
+@include media($mobile){
+    .footer {
+        
+    }
+}

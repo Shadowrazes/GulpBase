@@ -1,0 +1,18 @@
+.page-404 {
+    height: 80vh;
+
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@include media($mobile){
+    .page-404 {
+        &__container {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+}

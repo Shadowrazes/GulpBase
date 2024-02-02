@@ -1,0 +1,210 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    font-family: TildaSans;
+    background-color: $graphiteColor;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+}
+
+.main {
+    flex-grow: 1;
+}
+
+.container {
+    max-width: 1440px;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+a{
+    color: $whiteColor;
+    text-decoration: none;
+    transition: .4s;
+
+    &:hover {
+        color: $greenColor;
+        text-decoration: none;
+    }
+
+    @include any-hover {
+        color: $greenColor;
+        text-decoration: none;
+    }
+}
+
+svg{
+    flex-shrink: 0;
+}
+
+section{
+    margin-bottom: 50px;
+}
+
+input{
+    transition: 0.3s;
+
+    &:focus{
+        border-color: rgba(255, 121, 31, 1);
+    }
+
+    &:focus-visible {
+        outline: 0;
+        text-indent: 15px;
+    }
+}
+
+select{
+    &:focus{
+        border-color: rgba(255, 121, 31, 1);
+    }
+}
+
+textarea{
+    transition: 0.3s;
+
+    &:focus{
+        border-color: rgba(255, 121, 31, 1);
+    }
+
+    &:focus-visible {
+        outline: 0;
+        text-indent: 15px;
+    }
+}
+
+.uk-input, .uk-select, .uk-textarea {
+    transition: 0.3s;
+}
+
+.uk-accordion-title {
+    &:hover {
+        color: $greenColor;
+    }
+
+    @include any-hover {
+        color: $greenColor;
+        text-decoration: none;
+    }
+}
+
+.default-btn{
+    cursor: pointer;
+    transition: .3s;
+    color: $whiteColor;
+    background: $greenColor;
+    font-size: 24px;
+    line-height: 150%;
+    text-align: center;
+    padding: 10px 30px;
+    border-radius: 50px;
+    border: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    @include any-hover {
+        opacity: .8;
+    }
+}
+
+.text{
+    color: $whiteColor;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 150%;
+    margin: 0;
+
+    &_huge{
+        color: $whiteColor;
+        font-size: 48px;
+        font-weight: 400;
+        line-height: 150%;
+        margin: 0;
+    }
+
+    &_large{
+        color: $whiteColor;
+        font-size: 36px;
+        font-weight: 400;
+        line-height: 150%;
+        margin: 0;
+    }
+    
+    &_small{
+        color: $whiteColor;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 150%;
+        margin: 0;
+    }
+    
+    &_bold{
+        font-weight: 700;
+    }
+
+    &_light_bold{
+        font-weight: 500;
+    }
+}
+
+@include media($tablet){
+    .default-btn{
+        font-size: 18px;
+        padding: 5px 20px;
+    }
+
+    .text{
+        font-size: 18px;
+
+        &_huge{
+            font-size: 32px;
+        }
+
+        &_large{
+            font-size: 24px;
+        }
+        
+        &_small{
+            font-size: 16px;
+        }
+    }
+}
+
+@include media($mobile){
+    section{
+        margin-bottom: 25px;
+    }
+
+    .default-btn{
+        font-size: 14px;
+        padding: 5px 20px;
+    }
+
+    .text{
+        font-size: 16px;
+
+        &_huge{
+            font-size: 24px;
+        }
+
+        &_large{
+            font-size: 20px;
+        }
+        
+        &_small{
+            font-size: 14px;
+        }
+    }
+}

@@ -1,0 +1,72 @@
+<header class="header">
+    <div class="header__container container">
+        <!-- <div class="header__logo">
+            @@include('helpers/svg.html', {
+            'icon': 'logo',
+            'class': 'header__logo-icon icon'
+            })
+        </div> -->
+
+        <ul class="header__menu-list text">
+            <li class="header__menu-item">
+                <nav class="header__menu-dropnav" uk-dropnav>
+                    <a href="#" class="header__menu-link">Услуги <span uk-drop-parent-icon></span></a>
+                    <div class="header__drop-menu-container" uk-dropdown="pos: top-center; mode: click">
+                        <ul class="text_small header__drop-menu uk-nav uk-dropdown-nav">
+                            <li class="header__drop-menu-item">
+                                <a class="header__drop-menu-link" href="#">Услуга</a>
+                            </li>
+                            <li class="header__drop-menu-item">
+                                <a class="header__drop-menu-link" href="#">Услуга</a>
+                            </li>
+                            <li class="header__drop-menu-item">
+                                <a class="header__drop-menu-link" href="#">Услуга</a>
+                            </li>
+                            <li class="header__drop-menu-item">
+                                <a class="header__drop-menu-link" href="#">Услуга</a>
+                            </li>
+                            <li class="header__drop-menu-item">
+                                <a class="header__drop-menu-link" href="#">Услуга</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </li>
+        </ul>
+
+        <div class="header__burger burger">
+            <button class="burger__button">
+                <div class="burger__line"></div>
+                <div class="burger__line"></div>
+                <div class="burger__line"></div>
+            </button>
+        </div>
+    </div>
+</header>
+
+<div id="burger-menu" class="burger-menu uk-modal-full uk-modal">
+    <ul class="burger-menu__items uk-modal-dialog uk-modal-body">
+        <li class="burger-menu__item"><a class="burger-menu__link" href="/#about-company">О компании</a></li>
+        <li class="burger-menu__item"><a class="burger-menu__link" href="/#services">Услуги</a></li>
+        <li class="burger-menu__item"><a class="burger-menu__link" href="/#contacts">Контакты</a></li>
+		<li class="burger-menu__item"><a class="burger-menu__link" href="/privacy">Политика конфиденциальности</a></li>
+        <li class="burger-menu__item burger-menu__info">
+            <button class="burger-menu__collback-btn default-btn" uk-toggle="target: #callback-popup">Перезвоните нам</button>
+        </li>
+    </ul>
+</div>
+
+<!--Burger Popup-->
+<div id="burger-menu" class="burger-menu uk-modal-full uk-modal">
+    <ul class="burger-menu__items">
+        <li class="burger-menu__item">
+            <a class="burger-menu__link" href="">Главная</a>
+        </li>
+        <li class="burger-menu__item">
+            <a class="burger-menu__link" href="">Блог</a>
+        </li>
+        <li class="burger-menu__item">
+            <a class="burger-menu__link" href="">Контакты</a>
+        </li>
+    </ul>
+</div>
