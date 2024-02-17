@@ -1,8 +1,4 @@
-.header {   
-    // position: fixed;
-    // top: 5px;
-    // right: 0;
-    // left: 0;
+.header {
     z-index: 1030;
 
     &__container {
@@ -23,9 +19,13 @@
         }
     }
 
+    &__menu-link {
+        color: $textColor;
+    }
+
     &__drop-menu-container {
         padding: 10px;
-        background: #031428E4;
+        background: #FFFFFFED;
         border-radius: 15px;
     }
 
@@ -40,10 +40,10 @@
     }
 
     &__drop-menu-link {
-        color: $whiteColor !important;
+        color: $textColor;
 
         @include any-hover {
-            color: $greenColor !important;
+            color: $textColor;
             text-decoration: none;
         }
     }
@@ -55,7 +55,7 @@
         position: relative;
         width: 40px;
         height: 40px;
-        background: $lightGreenColor;
+        background: #000000;
         border-radius: 50%;
         padding: 10px;
         border: 0;
@@ -87,7 +87,7 @@
         height: 3px;
         width: 20px;
         border-radius: 10px;
-        background: $whiteColor;
+        background: #BABABA;
         transition: .3s;
         &:nth-child(1) {
             top: calc(50% - 6px);
@@ -111,16 +111,16 @@
 
     &__item {
         padding: 10px 0px;
-        border-bottom: 1px solid $lightGreyColor;
+        border-bottom: 1px solid #000000;
         list-style-type: none;
     }
 
     &__link {
         font-weight: 700;
-        color: $whiteColor;
+        color: $btnColor;
 
         &:hover {
-            color: $whiteColor;
+            color: $btnHoverColor;
             text-decoration: none;
         }
     }
@@ -131,7 +131,7 @@
     }
 
     &__drop-menu-link{
-        color: $whiteColor;
+        color: $btnColor;
         font-weight: 700;
     }
 }

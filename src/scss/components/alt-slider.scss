@@ -4,7 +4,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background: rgba(15, 19, 27, 0.8588235294);
+    background: rgba(234, 233, 123, 0.8588235294);
     border-radius: 15px;
 }
 
@@ -46,7 +46,6 @@
     &__title {
         text-align: center;
         font-size: 32px;
-        color: #fff;
         margin-bottom: 15px;
         line-height: 38px;
         z-index: 2;
@@ -64,7 +63,6 @@
     &__text {
         opacity: 0;
         line-height: 150%;
-        color: white;
     }
     
     &__button {
@@ -103,56 +101,6 @@
     &_center {
         .alt-slide__text {
             opacity: 1;
-        }
-    }
-}
-
-@include media($tablet) {
-    .alt-slide {
-        &__text {
-            padding: 0 50px;
-        }
-    }
-
-    .alt-slider {
-        &__slider-nav-prev {
-            margin-right: -20px;
-        }
-
-        &__slider-nav-next {
-            margin-left: -20px;
-        }
-    }
-}
-
-@include media($mobile) {
-    .alt-slider {
-        padding: 20px 10px;
-
-        &__slider-nav-btn {
-            width: 30px;
-            height: 30px;
-        }
-
-        &__title {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-    }
-
-    .alt-slide {
-        &__wrapper {
-            gap: 10px;
-            padding: 0 40px;
-        }
-
-        &__title {
-            font-size: 18px;
-        }
-
-        &__text {
-            font-size: 14px;
-            padding: 0 15px;
         }
     }
 }

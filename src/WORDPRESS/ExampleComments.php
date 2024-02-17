@@ -49,7 +49,7 @@ function mytheme_comment($comment, $args, $depth) {
 		'comment_notes_after'  => '',
 		'class_container'      => 'comment-respond',
 		'class_form'           => 'comment-form',
-		'class_submit'         => 'default-btn comment-form__submit',
+		'class_submit'         => 'btn comment-form__submit',
 		'name_submit'          => 'submit',
 		'title_reply'          => __( 'Добавить комментарий' ),
 		'title_reply_to'       => __( 'Ответ для %s' ) ,

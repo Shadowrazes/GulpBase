@@ -1,0 +1,112 @@
+.how-start {
+    &__content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__card {
+        flex: 0 0 20%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 10px;
+        border-radius: 40px;
+        background: #FFFFFF;
+        border: 1px solid #000000;
+    }
+
+    &__card-top {
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+        border-radius: 25px;
+
+        &_1 {
+            background: #95BEE7;
+        }
+
+        &_2 {
+            background: #A6A8E5;
+        }
+
+        &_3 {
+            background: #EBB9EB;
+        }
+
+        &_4 {
+            background: #D464DC;
+        }
+    }
+
+    &__card-num-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #FFFFFF;
+        border-radius: 5px;
+        flex-shrink: 1;
+        padding: 5px 15px;
+        width: 55px;
+        height: fit-content;
+    }
+
+    &__card-num {
+        height: fit-content;
+        font-size: 40px;
+        font-weight: 600;
+    }
+
+    &__card-img {
+        margin-top: 20px;
+        border-radius: 15px;
+        width: 170px;
+        height: 170px;
+        object-fit: cover;
+    }
+
+    &__card-descr {
+        text-align: center;
+        font-size: 24px;
+        font-weight: 600;
+        margin: 0;
+    }
+}
+
+@include media($tablet){
+    .how-start {
+        &__content {
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+    
+        &__card {
+            flex: 0 0 45%;
+        }
+    }
+}
+
+@include media($mobile){
+    .how-start {
+        &__content {
+            justify-content: center;
+        }
+    
+        &__card {
+            flex: 0 0 90%;
+            padding: 20px;
+        }
+    
+        &__card-top {
+            padding: 20px;
+        }
+    
+        &__card-img {
+            width: 120px;
+            height: 120px;
+        }
+
+        &__card-descr {
+            font-size: 20px;
+        }
+    }
+}
