@@ -78,6 +78,7 @@
   "dependencies": {
     "aos": "^2.3.4",
     "dev-ip": "^1.0.1",
+    "gulp-beautify": "^3.0.0",
     "gulp-cheerio": "^1.0.0",
     "gulp-svgmin": "^4.1.0"
   }

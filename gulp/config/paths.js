@@ -14,7 +14,7 @@ const filePaths = {
     static: `${buildFolder}/static/`,
   },
   src: {
-    js: `${srcFolder}/js/app.js`,
+    js: `${srcFolder}/js/**/*`,
     images: `${srcFolder}/images/**/*.{jpg,jpeg,png,gif,webp}`,
     svg: `${srcFolder}/images/**/*.svg`,
     scss: `${srcFolder}/scss/style.scss`,

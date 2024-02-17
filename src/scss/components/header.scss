@@ -1,11 +1,21 @@
 .header {
     z-index: 1030;
+    padding: 15px;
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    border-color: #E4E4E4;
 
     &__container {
+        max-width: 1400px;
+    }
+
+    &__top {
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
+
+    &__recall-btn {}
 
     &__menu-list {
         margin: 0;
@@ -46,6 +56,31 @@
             color: $textColor;
             text-decoration: none;
         }
+    }
+}
+
+.icon-card {
+    display: flex;
+    gap: 10px;
+
+    &__image {
+        width: 55px;
+        height: 55px;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        font-family: sans-serif;
+        color: $titleColor;
+        font-size: 1.7em;
+    }
+
+    &__descr {
+        font-size: 1.5em;
     }
 }
 

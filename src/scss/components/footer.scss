@@ -1,5 +1,53 @@
 .footer {
-    
+    padding: 15px;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1400px;
+    }
+
+    &__column {
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 25%;
+        gap: 10px;
+    }
+
+    &__payment-column {
+        flex: 0 0 35%;
+        text-align: center;
+    }
+
+    &__warning-column {
+        text-align: right;
+    }
+
+    &__dev-link {
+        color: $btnColor;
+        background: $linkColor;
+        padding: 0 5px;
+
+        @include any-hover {
+            color: $btnColor;
+        }
+    }
+
+    &__payment-images {
+        display: flex;
+        gap: 15px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__payment-img {
+        width: 70px;
+        height: fit-content;
+    }
+
+    &__warning-age-img {
+        width: 1.5em;
+    }
 }
 
 .callback-popup{
@@ -30,7 +78,19 @@
 
 @include media($tablet){
     .footer {
-        
+        &__container {
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        &__column {
+            text-align: center;
+        }
+    
+        &__payment-img {
+            width: 15%;
+        }
     }
 }
 

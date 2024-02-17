@@ -1,12 +1,47 @@
 <header class="header">
     <div class="header__container container">
-        <!-- <div class="header__logo">
-            @@include('helpers/svg.html', {
-            'icon': 'logo',
-            'class': 'header__logo-icon icon'
-            })
-        </div> -->
+        <div class="header__top">
+            <div class="icon-card">
+                <a href="/" class="icon-card__logo-wrapper">
+                    <img src="@img/icons/logo.png" class="icon-card__image header__logo-image" alt="Реабилитационный центр «Независимость»">
+                </a>
+                <div class="icon-card__content">
+                    <span class="text_bold icon-card__title header__logo-title">НЕЗАВИСИМОСТЬ</span>
+                    <span class="icon-card__descr header__logo-descr">Центр семейной терапии</span>
+                </div>
+            </div>
+    
+            <div class="icon-card">
+                <img src="@img/icons/family-ico.png" class="icon-card__image" alt="">
+                <div class="icon-card__content">
+                    <span class="icon-card__title">20 ЛЕТ</span>
+                    <span class="icon-card__descr">спасаем жизни людей</span>
+                </div>
+            </div>
+    
+            <div class="icon-card">
+                <img src="@img/icons/24hours-ico.png" class="icon-card__image" alt="">
+                <div class="icon-card__content">
+                    <a href="tel:73832552829" class="icon-card__title">+7 (383) 255-28-29</a>
+                    <span class="icon-card__descr">Бесплатно. Анонимно. 24/7</span>
+                </div>
+            </div>
+    
+            <a href="" class="btn header__recall-btn">Экстренная помощь</a>
+        </div>
 
+        <div class="header__burger burger">
+            <button class="burger__button">
+                <div class="burger__line"></div>
+                <div class="burger__line"></div>
+                <div class="burger__line"></div>
+            </button>
+        </div>
+    </div>
+</header>
+
+<div class="header-menu">
+    <div class="container header__menu-container">
         <ul class="header__menu-list text">
             <li class="header__menu-item">
                 <nav class="header__menu-dropnav" uk-dropnav>
@@ -33,16 +68,8 @@
                 </nav>
             </li>
         </ul>
-
-        <div class="header__burger burger">
-            <button class="burger__button">
-                <div class="burger__line"></div>
-                <div class="burger__line"></div>
-                <div class="burger__line"></div>
-            </button>
-        </div>
     </div>
-</header>
+</div>
 
 <div id="burger-menu" class="burger-menu uk-modal-full uk-modal">
     <ul class="burger-menu__items uk-modal-dialog uk-modal-body">
