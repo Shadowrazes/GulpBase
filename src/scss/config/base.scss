@@ -24,16 +24,26 @@ body {
     
 }
 
-.main {
-    flex-grow: 1;
+h1, h2, h3, h4, h5, h6 {
+    color: $titleColor;
+    font-weight: bold;
+    font-family: 'Raleway';
 }
 
-.container {
-    max-width: 1200px;
-    width: 100%;
-    padding: 0 15px;
-    margin: 0 auto;
-    height: 100%;
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3, h4, h5, h6 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.5rem;
 }
 
 a{
@@ -45,8 +55,13 @@ a{
     }
 }
 
+a[href*="tel:"] {
+    white-space: nowrap;
+}
+
 section{
     margin-top: 4rem;
+    position: relative;
 }
 
 input{
@@ -68,7 +83,7 @@ select{
 
 textarea{
     &:focus{
-        border-color: rgba(255, 121, 31, 1);
+        border-color: $btnHoverColor;
     }
 
     &:focus-visible {
@@ -77,26 +92,51 @@ textarea{
     }
 }
 
+.main {
+    flex-grow: 1;
+}
+
+.container {
+    max-width: 1400px;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+
+    &_vertical {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
 .uk-input, .uk-select, .uk-textarea {
     transition: 0.3s;
     font-size: 1.5em;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight: bold;
+.uk-accordion-content {
+    margin: 0;
 }
 
-h1 {
-    font-size: 3em;
+.uk-accordion-title::before {
+    width: 1em;
+    height: 1em;
+    background-size: 100%;
 }
-h2 {
-    font-size: 2.5em;
+
+.uk-slidenav {
+    color: #000000;
 }
-h3, h4, h5, h6 {
-    font-size: 2em;
+
+.uk-lightbox-button {
+    color: #FFFFFF;
 }
-p {
-    font-size: 1.5rem;
+
+.section-title {
+    text-align: center;
 }
 
 .text{
@@ -105,8 +145,8 @@ p {
     font-weight: 400;
 
     &_huge{
-        color: $textColor;
-        font-size: 2em;
+        color: $titleColor;
+        font-size: 2.5em;
     }
 
     &_large{
@@ -140,6 +180,8 @@ p {
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    gap: 20px;
 
     @include any-hover {
         text-decoration: none;
@@ -150,6 +192,38 @@ p {
     &:focus {
         outline: none;
         background: $textColor;
+    }
+}
+
+.btn-icon {
+    width: 1em;
+    height: 1em;
+}
+
+.slider {
+    &_centered {
+        img {
+            transition: height .2s;
+            height: 80%;
+        }
+    
+        &__item_center img {
+            height: 100% !important;
+        }
+    }
+
+    &__wrapper {
+        padding: 20px;
+    }
+    
+    &__item {
+        display: flex;
+        justify-content: center;
+    }
+    
+    &__item-wrapper {
+        display: flex;
+        align-items: center;
     }
 }
 

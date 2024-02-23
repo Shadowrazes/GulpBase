@@ -1,9 +1,9 @@
 .header {
-    z-index: 1030;
-    padding: 15px;
+    z-index: 1005;
     border-style: solid;
     border-width: 0px 0px 1px 0px;
     border-color: #E4E4E4;
+    background-color: #FFFFFF;
 
     &__container {
         max-width: 1400px;
@@ -13,6 +13,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        padding: 15px;
     }
 
     &__recall-btn {}
@@ -31,6 +32,7 @@
 
     &__menu-link {
         color: $textColor;
+        font-family: 'Raleway' !important;
     }
 
     &__drop-menu-container {
@@ -57,15 +59,118 @@
             text-decoration: none;
         }
     }
+
+    &__logo-title {
+        font-family: 'Circe', sans-serif;
+        font-size: 2em !important;
+    }
+
+    &__logo-image {
+        width: 55px !important;
+        height: 55px !important;
+        flex: 0 0 55px;
+    }
+
+    &__bottom {
+        border-top: 1px solid #00000018;
+        margin-top: 1em;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        background-color: white;
+    }
+
+    // &__menu {
+    //     display: flex;
+    //     justify-content: space-evenly;
+    //     align-items: center;
+    //     list-style: none;
+    //     margin: 0;
+    //     padding: 0;
+    // }
+
+    &__menu {
+        display: flex;
+        justify-content: space-between;
+        flex: 0 0 100%;
+    }
+
+    &__menu-link {
+        font-size: 1.3em !important;
+        min-height: auto !important;
+    }
+
+    &__dropdown {
+        display: flex;
+        justify-content: space-between;
+        gap: 50px;
+    }
+
+    &__dropdown-column {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    &__dropdown-title {
+        font-size: 2em;
+        font-weight: bold;
+        color: #000000AA !important;
+        &:hover {
+            text-decoration: underline !important;
+        }
+    }
+
+    &__dropdown-link {
+        font-size: 1.3em;
+        color: inherit;
+        &:hover {
+            text-decoration: underline !important;
+        }
+    }
+
+    &__burger-btn {
+        flex-direction: column;
+        gap: 4px;
+        background-color: $btnBgColor;
+        flex: 0 0 40px;
+        height: 40px;
+        padding: 10px;
+    }
+
+    &__burger-line {
+        width: 20px;
+        height: 2px;
+        background-color: white;
+    }
+
+    &__mobile-recall-btn {
+        height: 40px;
+        padding: 10px 15px;
+    }
+
+    &__mobile-nav-wrapper {
+        display: none;
+        gap: 5px;
+    }
+
+    &__burger-close {
+        top: 10px;
+        right: 10px;
+    }
+
+    &__burger-menu-link {
+        font-size: 1.2rem;
+    }
 }
 
 .icon-card {
     display: flex;
+    align-items: center;
     gap: 10px;
 
     &__image {
-        width: 55px;
-        height: 55px;
+        width: 40px;
+        height: 40px;
     }
 
     &__content {
@@ -74,13 +179,18 @@
     }
 
     &__title {
-        font-family: sans-serif;
+        text-align-last: left;
         color: $titleColor;
         font-size: 1.7em;
     }
 
     &__descr {
-        font-size: 1.5em;
+        text-align-last: left;
+        font-size: 1.35em;
+    }
+
+    &__logo-wrapper {
+        display: flex;
     }
 }
 
@@ -175,8 +285,71 @@
     .burger {
         display: block;
     }
+
+    .header {
+        &__save-icon {
+            display: none;
+        }
+
+        &__logo-image {
+            height: 35px !important;
+        }
+
+        &__container {
+            padding: 0 !important;
+        }
+
+        &__dropdown {
+            gap: 10px;
+        }
+
+        &__menu-container {
+            padding: 0 10px !important;
+        }
+    }
+
+    .icon-card {
+        &__logo-wrapper {
+            flex: 0 0 35px;
+        }
+    }
+    
 }
 
 @include media($mobile){
-    
+    .header {
+        padding: 10px 15px;
+        &__top {
+            gap: 5px;
+            padding: 0;
+        }
+
+        &__phone-icon {
+            display: none;
+        }
+
+        &__bottom {
+            display: none;
+        }
+
+        &__recall-btn {
+            display: none;
+        }
+
+        &__mobile-nav-wrapper {
+            display: flex;
+        }
+
+        &__logo-title {
+            font-size: 1.5em !important;
+        }
+
+        &__logo-descr {
+            font-size: 1.2em !important;
+        }
+
+        &__logo-icon {
+            gap: 5px;
+        }
+    }
 }

@@ -39,7 +39,6 @@ function watcher() {
   gulp.watch(filePaths.watch.scss, scss);
   gulp.watch(filePaths.watch.js, js);
   gulp.watch(filePaths.watch.images, images);
-  gulp.watch(filePaths.watch.svgIcons, createSvgSprite);
 }
 
 // Последовательная обработка шрифтов
@@ -71,4 +70,4 @@ gulp.task('default', dev);
 /**
  * Экспорт сценариев
  */
-export { dev, build, deployZIP, deployFTP, createSvgSprite, isBuild, isDev };
+export { dev, build, deployZIP, deployFTP, isBuild, isDev };

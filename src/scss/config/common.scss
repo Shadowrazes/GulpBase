@@ -1,1 +1,18 @@
 // Заголовки, общие БЄМ блоки и проче...
+
+.lined-section {
+    &:before {
+        content: "";
+        position: absolute;
+        top: calc(50% - 100px);
+        left: 0%;
+        width: 100%;
+        height: 200px;
+        background: #14C2E7;
+        opacity: 0.1;
+    }
+
+    .container {
+        z-index: 1;
+    }
+}

@@ -24,7 +24,7 @@ const scss = () => {
       .pipe(sass({ outputStyle: 'expanded' }))
       .pipe(plugins.replace(/@img\//g, '../images/'))
       .pipe(plugins.if(isBuild, groupCssMediaQueries()))
-      .pipe(
+      /*.pipe(
         plugins.if(
           isBuild,
           webpCss({
@@ -32,7 +32,7 @@ const scss = () => {
             noWebpClass: '.no-webp',
           })
         )
-      )
+      )*/
       .pipe(
         plugins.if(
           isBuild,
@@ -65,9 +65,9 @@ const scss = () => {
       
       /** Раскомментировать если нужен не сжатый дубль файла стилей */
       .pipe(gulp.dest(filePaths.build.css))
-      .pipe(plugins.if(isBuild, cleanCss()))
+      /*.pipe(plugins.if(isBuild, cleanCss()))
       .pipe(rename({ extname: '.min.css' }))
-      .pipe(gulp.dest(filePaths.build.css))
+      .pipe(gulp.dest(filePaths.build.css))*/
       .pipe(plugins.browserSync.stream())
   );
 };

@@ -135,18 +135,21 @@ function CallbackFormInit(){
 							})
 						}
 
-						jQuery.ajax({
-							url: '/wp-admin/admin-ajax.php',
-							method: 'post',
-							data: {
-								action: 'sendForm',
-								data: JSON.stringify(formData)
-							},
-							success: function(data){
-								let successPopupNode = document.querySelector('#success-popup');
-								UIkit.modal(successPopupNode).show();
-							}
-						});
+                        let successPopupNode = document.querySelector('#callback-popup__success');
+						UIkit.modal(successPopupNode).show();
+
+						// jQuery.ajax({
+						// 	url: '/wp-admin/admin-ajax.php',
+						// 	method: 'post',
+						// 	data: {
+						// 		action: 'sendForm',
+						// 		data: JSON.stringify(formData)
+						// 	},
+						// 	success: function(data){
+						// 		let successPopupNode = document.querySelector('#success-popup');
+						// 		UIkit.modal(successPopupNode).show();
+						// 	}
+						// });
                     })
                 })
             }
@@ -174,26 +177,28 @@ function LoadMapOnScroll(){
 	}
 }
 
-function InitTripleColumnSlider(){
-    const TripleColumnSlider = document.querySelector('.alt-slider__slider');
-    if(TripleColumnSlider) {
-        UIkit.slider(TripleColumnSlider, {
-            center: true
-        });
-        let lastSlide = document.querySelector('.alt-slide_center');
-        UIkit.util.on(TripleColumnSlider, 'itemshown', (event) => {
-            lastSlide.classList.remove('alt-slide_center');
-            event.target.classList.add('alt-slide_center');
-            lastSlide = event.target;
+function InitCenteredSliders(){
+    let centeredSliders = document.querySelectorAll('.slider_centered');
+    if(centeredSliders.length > 0){
+        centeredSliders.forEach((centeredSlider) =>{
+            UIkit.slider(centeredSlider, {
+                center: true
+            });
+            let lastSlide = document.querySelector('.slider_centered__item_center');
+            UIkit.util.on(centeredSlider, 'itemshown', (event) => {
+                lastSlide.classList.remove('slider_centered__item_center');
+                event.target.classList.add('slider_centered__item_center');
+                lastSlide = event.target;
+            })
         })
-    }
+    };
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
     CallbackFormInit();
-    InitTripleColumnSlider();
+    InitCenteredSliders();
 
-    particlesJS.load('particles-slider', 'static/ParticlesJSON/GreenHexagons.json');
+    // particlesJS.load('particles-slider', 'static/ParticlesJSON/GreenHexagons.json');
 
     // Содержание статьи по заголовкам
     // InsertPostContents();
@@ -201,8 +206,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Прогрузка карты при скролле
     // LoadMapOnScroll()
 
-    if(isTablet) {
-        const burgerNode = document.querySelector('.burger');
-        new BurgerMenu(burgerNode);
-    }
+    // if(isTablet) {
+    //     const burgerNode = document.querySelector('.burger');
+    //     new BurgerMenu(burgerNode);
+    // }
 })

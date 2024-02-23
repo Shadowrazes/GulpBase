@@ -1,3 +1,64 @@
+<section class="footer-links">
+    <div class="footer-links__container container">
+        <div class="footer-links__column">
+            <div class="icon-card">
+                <span href="/" class="icon-card__logo-wrapper">
+                    <img src="@img/icons/logo.png" class="icon-card__image" alt="Реабилитационный центр «Независимость»">
+                </span>
+                <div class="icon-card__content">
+                    <span class="text_bold icon-card__title">НЕЗАВИСИМОСТЬ</span>
+                    <span class="icon-card__descr">Центр семейной терапии</span>
+                </div>
+            </div>
+    
+            <div class="icon-card header__info-card">
+                <img src="@img/icons/family-ico.png" class="icon-card__image" alt="">
+                <div class="icon-card__content">
+                    <span class="icon-card__title">20 ЛЕТ</span>
+                    <span class="icon-card__descr">спасаем жизни людей</span>
+                </div>
+            </div>
+    
+            <div class="icon-card header__info-card">
+                <img src="@img/icons/24hours-ico.png" class="icon-card__image" alt="">
+                <div class="icon-card__content">
+                    <a href="tel:73832552829" class="icon-card__title">+7 (383) 255-28-29</a>
+                    <span class="icon-card__descr">Бесплатно. Анонимно. 24/7</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-links__column text">
+            <a href="#" class="footer-links__link">Персонал центра</a>
+            <a href="#" class="footer-links__link">Галерея</a>
+            <a href="#" class="footer-links__link">Цены</a>
+            <a href="#" class="footer-links__link">Отзывы</a>
+            <a href="#" class="footer-links__link">Блог</a>
+            <a href="#" class="footer-links__link">Контакты</a>
+        </div>
+        <div class="footer-links__column text">
+            <a href="#" class="footer-links__link">Лечение наркомании</a>
+            <a href="#" class="footer-links__link">Лечение алкоголизма</a>
+            <a href="#" class="footer-links__link">Кодирование</a>
+            <a href="#" class="footer-links__link">Выведение из запоя</a>
+            <a href="#" class="footer-links__link">Лечение игромании</a>
+        </div>
+        <div class="footer-links__column">
+            <a href="#callback-popup" class="btn footer-links__recall-btn" uk-toggle>
+                <img src="@img/icons/emergency_help.svg" alt="" class="btn-icon footer-links__recall-btn-icon" uk-svg>
+                <span>Экстренная помощь</span>
+            </a>
+            <a href="https://wa.me/79628352829" class="btn footer-links__recall-btn">
+                <img src="@img/icons/socials/whatsapp.svg" alt="" class="btn-icon footer-links__recall-btn-icon" uk-svg>
+                <span>Написать в WhatsApp</span>
+            </a>
+            <a href="https://t.me/+79628352829" class="btn footer-links__recall-btn">
+                <img src="@img/icons/socials/telegram.svg" alt="" class="btn-icon footer-links__recall-btn-icon" uk-svg>
+                <span>Написать в Telegram</span>
+            </a>
+        </div>
+    </div>
+</section>
+
 <footer class="footer">
     <div class="text footer__container container">
         <div class="footer__column footer__policy-column">
@@ -24,58 +85,32 @@
     </div>
 
     <div id="callback-popup" class="callback-popup" uk-modal-full uk-modal>
-        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical callback-popup__frame">
             <button class="uk-modal-close-default" type="button" uk-close></button>
 
-            <form class="uk-form-stacked">
+            <form class="uk-form-stacked callback-popup__form">
                 <div class="uk-modal-header">
-                    <p>Пожалуйста, заполните заявку</p>
+                    <span class="text_huge callback-popup__title">Консультация у специалиста</span>
                 </div>
-                <div class="uk-modal-body">
+                <div class="uk-modal-body callback-popup__content">
                     <div class="uk-margin">
-                        <div class="uk-form-label">Ваше имя</div>
+                        <span class="text callback-popup__descr">
+                            Наш центр оказывает профессиональную помощь людям, оказавшимся в трудной 
+                            жизненной ситуации. Для связи с нами, оставьте свои контакты в форме ниже, 
+                            или позвоните нам по номеру телефона <a href="tel:73832552829">+7(383) 255-28-29</a>
+                        </span>
+                    </div>
+                    <div class="uk-margin">
                         <div class="uk-form-controls">
-                            <input type="text" name="name" class="uk-input" placeholder="Представьтесь, пожалуйста" required="">
+                            <input type="text" name="phone" class="uk-input callback-popup__phone-input" placeholder="Ваш телефон" required="" inputmode="text">
                         </div>
                     </div>
                     <div class="uk-margin">
-                        <div class="uk-form-label">Ваш телефон</div>
-                        <div class="uk-form-controls">
-                            <input type="text" name="phone" class="uk-input callback-popup__phone-input" placeholder="Телефон для связи" required="" inputmode="text">
-                        </div>
-                    </div>
-                    <div class="uk-margin">
-                        <div class="uk-form-label">Ваша эл. почта</div>
-                        <div class="uk-form-controls">
-                            <input type="text" name="email" class="uk-input" placeholder="Ваша Эл. почта">
-                        </div>
-                    </div>
-
-                    <div class="uk-margin">
-                        <div class="uk-form-label">Удобный метод связи</div>
-                        <div class="uk-form-controls">
-                        <select class="uk-select" name="type-recall" required="">
-                            <option value="WhatsApp">WhatsApp</option>
-                            <option value="SMS">SMS</option>
-                            <option value="Звонок по телефону">Звонок по телефону</option>
-                        </select>
-                        </div>
-                    </div>
-                    <div class="uk-margin">
-                        <div class="uk-form-label">Доп. информация</div>
-                        <div class="uk-form-controls">
-                            <textarea name="INFO" class="uk-textarea" placeholder="Введите текст"></textarea>
-                        </div>
-                    </div>
-                    <div class="uk-margin">
-                        <label class="callback-popup__policy-box">
-                            <input class="uk-checkbox callback-popup__policy-check" type="checkbox" required="">
-                            <span class="callback-popup__policy-text">Согласен на обработку персональных данных в соответствии с <a class="callback-popup__policy-link" href="/privacy-policy/">политикой конфиденциальности</a> сайта</span>
-                        </label>
+                        <span class="text callback-popup__policy-text">Отправляя заявку, вы соглашаетесь <a class="callback-popup__policy-link" href="/privacy-policy/">политикой обработки данных</a></span>
                     </div>
                 </div>
                 <div class="uk-modal-footer uk-text-center">
-                    <button type="submit" class="btn callback-popup__submit-btn">Отправить заявку</button>
+                    <button type="submit" class="btn callback-popup__submit-btn">Отправить</button>
                 </div>
             </form>
         </div>
@@ -84,7 +119,12 @@
     <div id="callback-popup__success" class="callback-popup__success" uk-modal-full uk-modal>
         <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
             <button class="uk-modal-close-default" type="button" uk-close></button>
-            <div id="result-alert" class="uk-text-success"><p>Ваша заявка принята!</p><p>Спасибо за обращение.</p></div>
+            <div class="uk-modal-header">
+                <span class="text_huge">Обращение отправлено</span>
+            </div>
+            <div class="uk-modal-body">
+                <span class="text">Мы свяжемся с вами в ближайшее время!</span>
+            </div>
         </div>
     </div>
 </footer>

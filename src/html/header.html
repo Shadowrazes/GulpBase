@@ -1,7 +1,7 @@
-<header class="header">
+<header class="header" uk-sticky="media: (max-width: 768px)">
     <div class="header__container container">
         <div class="header__top">
-            <div class="icon-card">
+            <div class="icon-card header__logo-icon">
                 <a href="/" class="icon-card__logo-wrapper">
                     <img src="@img/icons/logo.png" class="icon-card__image header__logo-image" alt="Реабилитационный центр «Независимость»">
                 </a>
@@ -11,7 +11,7 @@
                 </div>
             </div>
     
-            <div class="icon-card">
+            <div class="icon-card header__save-icon">
                 <img src="@img/icons/family-ico.png" class="icon-card__image" alt="">
                 <div class="icon-card__content">
                     <span class="icon-card__title">20 ЛЕТ</span>
@@ -19,7 +19,7 @@
                 </div>
             </div>
     
-            <div class="icon-card">
+            <div class="icon-card header__phone-icon">
                 <img src="@img/icons/24hours-ico.png" class="icon-card__image" alt="">
                 <div class="icon-card__content">
                     <a href="tel:73832552829" class="icon-card__title">+7 (383) 255-28-29</a>
@@ -27,73 +27,292 @@
                 </div>
             </div>
     
-            <a href="" class="btn header__recall-btn">Экстренная помощь</a>
+            <a href="#callback-popup" class="btn header__recall-btn" uk-toggle>Экстренная помощь</a>
+
+            <div class="header__mobile-nav-wrapper">
+                <a href="#callback-popup" class="btn header__mobile-recall-btn" uk-toggle>
+                    <img class="btn-icon" src="@img/icons/phone.svg" alt="" uk-svg>
+                </a>
+                <a href="#burger-menu" class="btn header__burger-btn" uk-toggle>
+                    <div class="header__burger-line"></div>
+                    <div class="header__burger-line"></div>
+                    <div class="header__burger-line"></div>
+                </a>
+            </div>
+            
         </div>
 
-        <div class="header__burger burger">
-            <button class="burger__button">
-                <div class="burger__line"></div>
-                <div class="burger__line"></div>
-                <div class="burger__line"></div>
-            </button>
+        
+    </div>
+
+    <div class="header__bottom" uk-sticky="media: 768">
+        <div class="uk-position-relative">
+
+            <nav class="uk-navbar-container uk-navbar-transparent">
+                <div class="uk-container header__menu-container">
+                    <div uk-navbar="dropbar: true; dropbar-anchor: !.uk-navbar-container; target-y: !.uk-navbar-container">
+
+                            <ul class="uk-navbar-nav header__menu">
+                                <li class="uk-active"><a class="header__menu-link" href="#">Главная</a></li>
+                                <li>
+                                    <a class="header__menu-link" href="#">Услуги <span uk-navbar-parent-icon></span></a>
+                                    <div class="uk-navbar-dropdown" uk-drop="boundary: !.uk-navbar; stretch: x; flip: false">
+                                        <ul class="uk-nav uk-navbar-dropdown-nav" >
+                                            <div class="header__dropdown">
+                                                <div class="header__dropdown-column">
+                                                    <li class="uk-active"><a class="header__dropdown-title" href="#">Лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link" href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link" href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link" href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link" href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link" href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link" href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link" href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link" href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link" href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link" href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link" href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link" href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link" href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link" href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link" href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link" href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link" href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link" href="#">Анонимное лечение наркомании</a></li>
+                                                </div>
+                                                <div class="header__dropdown-column">
+                                                    <li class="uk-active"><a class="header__dropdown-title" href="#">Лечение алкоголизма</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                </div>
+                                                <div class="header__dropdown-column">
+                                                    <li class="uk-active"><a class="header__dropdown-title" href="#">Кодирование от алкоголизма</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                </div>
+                                                <div class="header__dropdown-column">
+                                                    <li class="uk-active"><a class="header__dropdown-title" href="#">Лечение игромании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+
+                                                    <li class="uk-nav-divider"></li>
+
+                                                    <li class="uk-active"><a class="header__dropdown-title" href="#">Выведение из запоя</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                </div>
+                                            </div>
+                                            
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><a class="header__menu-link" href="#">Стоимость лечения</a></li>
+                                <li>
+                                    <a class="header__menu-link" href="#">Близким <span uk-navbar-parent-icon></span></a>
+                                    <div class="uk-navbar-dropdown" uk-drop="boundary: !.uk-navbar; stretch: x; flip: false">
+                                        <ul class="uk-nav uk-navbar-dropdown-nav" >
+                                            <div class="header__dropdown">
+                                                <div class="header__dropdown-column">
+                                                    <li class="uk-active"><a class="header__dropdown-title" href="#">Лечение игромании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Лечение и диагностика наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Лечение и диагностика наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Лечение и диагностика наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Лечение и диагностика наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Лечение и диагностика наркомании</a></li>
+
+                                                    <li class="uk-nav-divider"></li>
+
+                                                    <li class="uk-active"><a class="header__dropdown-title" href="#">Выведение из запоя</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                </div>
+                                            </div>
+                                            
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><a class="header__menu-link" href="#">Блог</a></li>
+                                <li>
+                                    <a class="header__menu-link" href="#">О центре <span uk-navbar-parent-icon></span></a>
+                                    <div class="uk-navbar-dropdown" uk-drop="boundary: !.uk-navbar; stretch: x; flip: false">
+                                        <ul class="uk-nav uk-navbar-dropdown-nav" >
+                                            <div class="header__dropdown">
+                                                <div class="header__dropdown-column">
+                                                    <li class="uk-active"><a class="header__dropdown-title" href="#">Лечение игромании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Лечение и диагностика наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Лечение и диагностика наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Лечение и диагностика наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Лечение и диагностика наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Лечение и диагностика наркомании</a></li>
+
+                                                    <li class="uk-nav-divider"></li>
+
+                                                    <li class="uk-active"><a class="header__dropdown-title" href="#">Выведение из запоя</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                    <li><a class="header__dropdown-link"  href="#">Анонимное лечение наркомании</a></li>
+                                                </div>
+                                            </div>
+                                            
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><a class="header__menu-link" href="#">Конакты центра</a></li>
+                            </ul>
+                        </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div id="burger-menu" class="header__burger-menu uk-modal-full" uk-modal>
+        <div class="uk-modal-dialog" uk-height-viewport>
+            <div class="uk-modal-header">
+                <div class="icon-card header__logo-icon">
+                    <a href="/" class="icon-card__logo-wrapper">
+                        <img src="@img/icons/logo.png" class="icon-card__image header__logo-image" alt="Реабилитационный центр «Независимость»">
+                    </a>
+                    <div class="icon-card__content">
+                        <span class="text_bold icon-card__title header__logo-title">НЕЗАВИСИМОСТЬ</span>
+                        <span class="icon-card__descr header__logo-descr">Центр семейной терапии</span>
+                    </div>
+                </div>
+                <button class="uk-modal-close-full uk-close-large header__burger-close" type="button" uk-close></button>
+            </div>
+            <div class="uk-modal-body">
+                <ul class="uk-nav-default" uk-nav>
+                    <li class="header__burger-menu-link uk-active"><a href="#">Главная</a></li>
+                    <li class="uk-parent">
+                        <a class="header__burger-menu-link" href="">Услуги <span uk-nav-parent-icon></span></a>
+                        <ul class="uk-nav-sub" uk-nav>
+                            <li class="uk-parent">
+                                <a class="header__burger-menu-link" href="#">Лечение наркомании <span uk-nav-parent-icon></span></a>
+                                <ul class="uk-nav-sub">
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                </ul>
+                            </li>
+                            <li class="uk-parent">
+                                <a class="header__burger-menu-link" href="#">Лечение алкоголизма <span uk-nav-parent-icon></span></a>
+                                <ul class="uk-nav-sub">
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                </ul>
+                            </li>
+                            <li class="uk-parent">
+                                <a class="header__burger-menu-link" href="#">Кодирование от алкоголизма <span uk-nav-parent-icon></span></a>
+                                <ul class="uk-nav-sub">
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                </ul>
+                            </li>
+                            <li class="uk-parent">
+                                <a class="header__burger-menu-link" href="#">Выведение из запоя <span uk-nav-parent-icon></span></a>
+                                <ul class="uk-nav-sub">
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                </ul>
+                            </li>
+                            <li class="uk-parent">
+                                <a class="header__burger-menu-link" href="#">Лечение игромании <span uk-nav-parent-icon></span></a>
+                                <ul class="uk-nav-sub">
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="header__burger-menu-link" href="#">Стоимость лечения</a></li>
+                    <li class="uk-parent">
+                        <a class="header__burger-menu-link" href="">Близким <span uk-nav-parent-icon></span></a>
+                        <ul class="uk-nav-sub">
+                            <li><a class="header__burger-menu-link" href="#">Лечение алкоголизма</a></li>
+                            <li><a class="header__burger-menu-link" href="#">Лечение алкоголизма</a></li>
+                            <li><a class="header__burger-menu-link" href="#">Лечение алкоголизма</a></li>
+                            <li><a class="header__burger-menu-link" href="#">Лечение алкоголизма</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="header__burger-menu-link" href="#">Блог</a></li>
+                    <li class="uk-parent">
+                        <a class="header__burger-menu-link" href="">О центре <span uk-nav-parent-icon></span></a>
+                        <ul class="uk-nav-sub" uk-nav>
+                            <li class="uk-parent">
+                                <a class="header__burger-menu-link" href="#">Персонал реабилитационного центра <span uk-nav-parent-icon></span></a>
+                                <ul class="uk-nav-sub">
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                    <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                            <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                            <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                            <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                            <li><a class="header__burger-menu-link" href="#">Анонимное лечение наркомании</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="header__burger-menu-link" href="#">Контакты центра</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </header>
-
-<div class="header-menu">
-    <div class="container header__menu-container">
-        <ul class="header__menu-list text">
-            <li class="header__menu-item">
-                <nav class="header__menu-dropnav" uk-dropnav>
-                    <a href="#" class="header__menu-link">Услуги <span uk-drop-parent-icon></span></a>
-                    <div class="header__drop-menu-container" uk-dropdown="pos: top-center; mode: click">
-                        <ul class="header__drop-menu uk-nav uk-dropdown-nav">
-                            <li class="header__drop-menu-item">
-                                <a class="text header__drop-menu-link" href="#">Услуга</a>
-                            </li>
-                            <li class="header__drop-menu-item">
-                                <a class="text header__drop-menu-link" href="#">Услуга</a>
-                            </li>
-                            <li class="header__drop-menu-item">
-                                <a class="text header__drop-menu-link" href="#">Услуга</a>
-                            </li>
-                            <li class="header__drop-menu-item">
-                                <a class="text header__drop-menu-link" href="#">Услуга</a>
-                            </li>
-                            <li class="header__drop-menu-item">
-                                <a class="text header__drop-menu-link" href="#">Услуга</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </li>
-        </ul>
-    </div>
-</div>
-
-<div id="burger-menu" class="burger-menu uk-modal-full uk-modal">
-    <ul class="burger-menu__items uk-modal-dialog uk-modal-body">
-        <li class="burger-menu__item"><a class="burger-menu__link" href="/#about-company">О компании</a></li>
-        <li class="burger-menu__item"><a class="burger-menu__link" href="/#services">Услуги</a></li>
-        <li class="burger-menu__item"><a class="burger-menu__link" href="/#contacts">Контакты</a></li>
-		<li class="burger-menu__item"><a class="burger-menu__link" href="/privacy">Политика конфиденциальности</a></li>
-        <li class="burger-menu__item burger-menu__info">
-            <button class="burger-menu__collback-btn btn" uk-toggle="target: #callback-popup">Перезвоните нам</button>
-        </li>
-    </ul>
-</div>
-
-<!--Burger Popup-->
-<div id="burger-menu" class="burger-menu uk-modal-full uk-modal">
-    <ul class="burger-menu__items">
-        <li class="burger-menu__item">
-            <a class="burger-menu__link" href="">Главная</a>
-        </li>
-        <li class="burger-menu__item">
-            <a class="burger-menu__link" href="">Блог</a>
-        </li>
-        <li class="burger-menu__item">
-            <a class="burger-menu__link" href="">Контакты</a>
-        </li>
-    </ul>
-</div>

@@ -1,0 +1,71 @@
+<section class="calculator">
+    <div class="calculator__container container">
+        <h2 class="section-title calculator__title">Калькулятор стоимости</h2>
+        <div class="calculator__content">
+            <div class="calculator__img-container">
+                <div class="calculator__img-wrapper">
+                    <img src="@img/additional/calculator_bg.png" alt="" class="calculator__img">
+                </div>
+            </div>
+            <form class="calculator__form">
+                <h3 class="calculator__form-title">
+                    Узнайте стоимость лечения <span class="calculator__form-title_blue">сегодня</span>
+                </h3>
+
+                <div class="calculator__form-inputs">
+                    <div class="calculator__form-input-wrapper">
+                        <div class="text_small calculator__form-label">Ваше имя</div>
+                        <input type="text" name="name" class="uk-input calculator__form-input" placeholder="Введите здесь" required="">
+                    </div>
+    
+                    <div class="calculator__form-input-wrapper">
+                        <div class="text_small calculator__form-label">Ваш телефон</div>
+                        <input type="text" name="phone" class="uk-input calculator__form-input" placeholder="Введите здесь" required="" inputmode="text">
+                    </div>
+    
+                    <div class="calculator__form-input-wrapper">
+                        <div class="text_small calculator__form-label">Возраст зависимого</div>
+                        <input type="number" name="age" class="uk-input calculator__form-input" placeholder="Введите здесь">
+                    </div>
+    
+                    <div class="calculator__form-input-wrapper">
+                        <div class="text_small calculator__form-label">Кем приходится</div>
+                        <input type="text" name="who" class="uk-input calculator__form-input" placeholder="Введите здесь" required="">
+                    </div>
+    
+                    <div class="calculator__form-input-wrapper">
+                        <div class="text_small calculator__form-label">Что употребляет</div>
+                        <input type="text" name="what" class="uk-input calculator__form-input" placeholder="Введите здесь" required="" inputmode="text">
+                    </div>
+    
+                    <div class="calculator__form-input-wrapper">
+                        <div class="text_small calculator__form-label">Как долго употребялет</div>
+                        <input type="text" name="duration" class="uk-input calculator__form-input" placeholder="Введите здесь">
+                    </div>
+        
+                    <div class="calculator__form-input-wrapper">
+                        <div class="text_small calculator__form-label">Попытки лечения</div>
+                        <select class="uk-select calculator__form-input" name="heal-try" required="">
+                            <option value="none" disabled selected hidden>Выберите здесь</option>
+                            <option value="Были">Были</option>
+                            <option value="Не были">Не были</option>
+                        </select>
+                    </div>
+    
+                    <div class="calculator__form-input-wrapper">
+                        <div class="text_small calculator__form-label">Пациент согласен лечиться?</div>
+                        <select class="uk-select calculator__form-input" name="heal-agree" required="">
+                            <option value="none" disabled selected hidden>Выберите здесь</option>
+                            <option value="Да">Да</option>
+                            <option value="Нет">Нет</option>
+                        </select>
+                    </div>
+    
+                    <button type="submit" class="btn calculator__form-input calculator__form-submit-btn">Отправить</button>
+                </div>
+
+                <span class="text calculator__form-policy-text">Отправляя заявку, вы соглашаетесь <a class="calculator__form-policy-link" href="/privacy-policy/">политикой обработки данных</a></span>
+            </form>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,134 @@
+.calculator {
+
+    &__container {}
+
+    &__title {}
+
+    &__content {
+        display: flex;
+        justify-content: end;
+        position: relative;
+    }
+
+    &__img-container {
+        left: 0;
+        top: 0;
+        position: absolute;
+        width: 45%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    &__img-wrapper {
+        background-color: #113D63;
+        border-radius: 10px;
+    }
+
+    &__img {
+        opacity: 0.7;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    }
+
+    &__form {
+        z-index: 2;
+        flex: 0 0 70%;
+        padding: 30px;
+        background-color: #FFFFFFEE;
+        border: 1px solid $borderColor;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__form-inputs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: space-between;
+    }
+
+    &__form-title {
+        text-align: center;
+        font-weight: 400;
+        color: $textColor;
+
+        &_blue {
+            color: $textColorBlue;
+        }
+    }
+
+    &__form-input-wrapper {
+        flex: 0 0 30%;
+    }
+
+    &__form-label {
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    &__form-input {
+        height: 4rem !important;
+    }
+
+    &__form-submit-btn {
+        flex: 0 0 30%;
+        align-self: flex-end;
+    }
+}
+
+@include media($tablet) {
+    .calculator {
+        &__content {
+            justify-content: unset;
+        }
+    
+        &__img-container {
+            display: none;
+        }
+    
+        &__form {
+            flex: 0 0 100%;
+            text-align: center;
+        }
+    
+        &__form-inputs {
+            gap: 10px;
+        }
+    
+        &__form-submit-btn {
+            flex: 0 0 30%;
+            align-self: flex-end;
+        }
+    }
+}
+
+@include media($mobile) {
+    .calculator {
+        &__form-title {
+            margin: 0;
+        }
+
+        &__form {
+            padding: 15px;
+            gap: 15px;
+        }
+    
+        &__form-inputs {
+            flex-wrap: nowrap;
+            flex-direction: column;
+            gap: 10px;
+        }
+    
+        &__form-input-wrapper {
+            flex: unset;
+        }
+    
+        &__form-submit-btn {
+            flex: unset;
+            align-self: center;
+        }
+    }
+}

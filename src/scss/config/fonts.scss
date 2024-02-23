@@ -1,29 +1,15 @@
 @font-face {
 	font-family: Circe;
 	font-display: swap;
-	src: url("../fonts/Circe-Bold.woff2") format("woff2"), url("../fonts/Circe-Bold.woff") format("woff");
-	font-weight: 700;
-	font-style: normal;
-}
-@font-face {
-	font-family: Circe;
-	font-display: swap;
 	src: url("../fonts/Circe-Regular.woff2") format("woff2"), url("../fonts/Circe-Regular.woff") format("woff");
 	font-weight: 400;
 	font-style: normal;
 }
 @font-face {
-	font-family: Raleway;
+	font-family: Circe;
 	font-display: swap;
-	src: url("../fonts/Raleway-BoldItalic.woff2") format("woff2"), url("../fonts/Raleway-BoldItalic.woff") format("woff");
-	font-weight: undefined;
-	font-style: normal;
-}
-@font-face {
-	font-family: Raleway;
-	font-display: swap;
-	src: url("../fonts/Raleway-Italic.woff2") format("woff2"), url("../fonts/Raleway-Italic.woff") format("woff");
-	font-weight: undefined;
+	src: url("../fonts/Circe-Bold.woff2") format("woff2"), url("../fonts/Circe-Bold.woff") format("woff");
+	font-weight: 700;
 	font-style: normal;
 }
 @font-face {
@@ -38,6 +24,13 @@
 	font-display: swap;
 	src: url("../fonts/TildaSans-VF.woff2") format("woff2"), url("../fonts/TildaSans-VF.woff") format("woff");
 	font-weight: undefined;
+	font-style: normal;
+}
+@font-face {
+	font-family: Raleway;
+	font-display: swap;
+	src: url("../fonts/Raleway-Black.woff2") format("woff2"), url("../fonts/Raleway-Black.woff") format("woff");
+	font-weight: 900;
 	font-style: normal;
 }
 @font-face {

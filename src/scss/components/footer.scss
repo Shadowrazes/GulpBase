@@ -1,3 +1,26 @@
+.footer-links {
+    background: linear-gradient(0deg, #FFFFFFBB, #FFFFFFBB), 
+                url(@img/backgrounds/background-abstract-min.jpg) center/cover;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1400px;
+        padding: 40px 0px;
+    }
+
+    &__column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    &__recall-btn {
+        justify-content: space-between;
+    }
+}
+
 .footer {
     padding: 15px;
 
@@ -25,7 +48,7 @@
 
     &__dev-link {
         color: $btnColor;
-        background: $linkColor;
+        background: $textColor;
         padding: 0 5px;
 
         @include any-hover {
@@ -53,22 +76,24 @@
 .callback-popup{
     z-index: 1050;
 
-    &__policy-box{
-        display: flex;
-        align-items: center;
-        gap: 10px;
+    &__frame {
+        border-radius: 5px;
+        width: 700px;
     }
 
-    &__policy-check{
-        flex-shrink: 0;
+    &__form {
     }
 
-    &__policy-check:checked{
-        background-color: rgba(255, 121, 31, 1) !important;
+    &__title {
+        
     }
 
-    &__policy-link{
-        color: rgba(255, 121, 31, 1);
+    &__content {
+
+    }
+
+    &__phone-input {
+        border-radius: 5px;
     }
 
     &__success{
@@ -77,6 +102,20 @@
 }
 
 @include media($tablet){
+    .footer-links {
+        &__container {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 15px;
+            padding: 40px 0px;
+        }
+    
+        &__column {
+            gap: 10px;
+        }
+    }
+
     .footer {
         &__container {
             flex-direction: column;
@@ -97,5 +136,11 @@
 @include media($mobile){
     .footer {
         
+    }
+
+    .callback-popup{
+        &__title {
+            font-size: 1.9em;
+        }
     }
 }
