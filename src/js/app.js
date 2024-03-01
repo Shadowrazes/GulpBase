@@ -1,7 +1,7 @@
 import BurgerMenu from './BurgerMenu.js';
 
-const isMobile = document.documentElement.clientWidth <= 768;
-const isTablet = document.documentElement.clientWidth <= 1100;
+const isMobile = document.documentElement.clientWidth <= 640;
+const isTablet = document.documentElement.clientWidth <= 1200;
 const isLaptop = document.documentElement.clientWidth <= 1440;
 const isDesktop = document.documentElement.clientWidth > 1440;
 
@@ -96,7 +96,7 @@ const InsertPostContents = () => {
 	}
 }
 
-function CallbackFormInit(){
+async function CallbackFormInit(){
     let forms = document.querySelectorAll('form');
 
     if(forms.length > 0){
@@ -136,7 +136,9 @@ function CallbackFormInit(){
 						}
 
                         let successPopupNode = document.querySelector('#callback-popup__success');
+                        // Удалить в проде
 						UIkit.modal(successPopupNode).show();
+                        //  //
 
 						// jQuery.ajax({
 						// 	url: '/wp-admin/admin-ajax.php',
@@ -146,7 +148,6 @@ function CallbackFormInit(){
 						// 		data: JSON.stringify(formData)
 						// 	},
 						// 	success: function(data){
-						// 		let successPopupNode = document.querySelector('#success-popup');
 						// 		UIkit.modal(successPopupNode).show();
 						// 	}
 						// });
@@ -194,20 +195,36 @@ function InitCenteredSliders(){
     };
 }
 
+async function EnableSubmitOnCheckbox(){
+	let checks = document.querySelectorAll('.form-checkbox');
+	checks.forEach((checkbox) =>{
+		let form = checkbox.closest('form');
+		let button = form.querySelector('button[type="submit"]');
+		if (form && button)
+		{
+			button.classList.toggle('btn_inactive');
+			checkbox.addEventListener('click', (event) => {
+				button.classList.toggle('btn_inactive');
+			});
+		}
+	});
+}
+
 document.addEventListener('DOMContentLoaded', (event) => {
-    CallbackFormInit();
-    InitCenteredSliders();
+    // ASYNC
+    CallbackFormInit();         // Инцициализация всех форм (Маска тел. + ajax на submit)
+    EnableSubmitOnCheckbox();   // Активация submit только после согласия с политикой
+    // ENDASYNC
 
+    InitCenteredSliders();      // Преключение класса центрального слайда при свайпах
+    // InsertPostContents();    // Содержание статьи по заголовкам
+    // LoadMapOnScroll();       // Прогрузка карты при скролле
+
+    if(isTablet) {
+        const burgerNode = document.querySelector('.burger');
+        new BurgerMenu(burgerNode);
+    }
+
+    // Наложение партикла
     // particlesJS.load('particles-slider', 'static/ParticlesJSON/GreenHexagons.json');
-
-    // Содержание статьи по заголовкам
-    // InsertPostContents();
-
-    // Прогрузка карты при скролле
-    // LoadMapOnScroll()
-
-    // if(isTablet) {
-    //     const burgerNode = document.querySelector('.burger');
-    //     new BurgerMenu(burgerNode);
-    // }
 })

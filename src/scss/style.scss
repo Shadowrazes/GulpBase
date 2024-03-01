@@ -18,12 +18,10 @@
 @import 'config/common';
 
 /** Подключение стилей отдельных блоков и секций */
-@import 'components/header';
-@import 'components/footer';
-
-@import 'components/calculator';
-@import 'components/centered-gallery';
-@import 'components/gallery';
-
-@import 'components/accordion';
-@import 'components/404';
+@import 'components/ExHeader';
+@import 'components/ExBurger';
+@import 'components/ExBurger-menu';
+@import 'components/ExFooter';
+@import 'components/ExCentered-gallery';
+@import 'components/ExGallery';
+@import 'components/ExAccordion';

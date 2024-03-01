@@ -1,0 +1,47 @@
+.burger-menu {
+    z-index: 1000;
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+        text-transform: uppercase;
+        padding: 100px 20px 20px;
+        margin: 0;
+        background: $bodyColor;
+        margin-bottom: auto;
+    }
+
+    &__item {
+        display: flex;
+        justify-content: center;
+        padding: 10px 0px;
+        border-bottom: 1px solid $borderColor;
+        list-style-type: none;
+
+        &_text {
+            text-align: center;
+        }
+    }
+
+    &__btn {
+        width: 100%;
+    }
+
+    &__link {
+        color: $textColorDark;
+    }
+
+    &__text {
+        color: $textColorDark;
+        font-size: 1.5rem;
+    }
+
+    &__social-btns {
+        
+        justify-content: space-between;
+    }
+
+    .header__social-btn {
+        flex: 0 0 45%;
+    }
+}

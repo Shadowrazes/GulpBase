@@ -1,19 +1,34 @@
 $laptop: 1440;
-$tablet: 1100;
-$mobile: 768;
+$tablet: 1200;
+$mobile: 640;
 
+//-----------------------------------------
+$baseColor: #113D63;
 $bodyColor: #F5F5F5;
 $frameColor: #FFFFFFB8;
-$borderColor: #E4E4E4;
-
+$cardColor: #F4F4FC;
+$overlayColor: #000000AA;
+//-----------------------------------------
 $textColor: #282828;
-$textColorBlue: #6EC1E4;
-$titleColor: #113D63;
-
+$textColorLight: #6EC1E4;
+$textColorDark: #113D63;
+$textColorAccent: #767676;
+//-----------------------------------------
 $linkColor: #237FCF;
-
+//-----------------------------------------
 $btnColor: #F5F5F5;
 $btnBgColor: #237FCF;
-
 $btnHoverColor: #282828;
 $btnHoverBgColor: #DCDCDC;
+//-----------------------------------------
+$btnDarkColor: #FFFFFF;
+$btnDarkBgColor: #000000;
+$btnHoverDarkColor: #000000;
+$btnHoverDarkBgColor: #DCDCDC;
+//-----------------------------------------
+$borderColor: #113D63;
+$borderColorLight: #FFFFFF;
+//-----------------------------------------
+$sliderBtnColor: #113D63;
+$lightboxBtnColor: #FFFFFF;
+//-----------------------------------------

@@ -1,33 +1,51 @@
 <?
-
-add_action('wp_print_styles', 'add_styles'); // приклеем ф-ю на добавление стилей в хедер
-function add_styles() { // добавление стилей
-	if(is_admin()) return false; // если мы в админке - ничего не делаем
+//-----------------------------------------------------------------------------------------------
+// Добавление поддержки превью-картинок
+add_theme_support( 'post-thumbnails' );
+//-----------------------------------------------------------------------------------------------
+// Деактивация встроенного JQuery
+add_filter( 'wp_enqueue_scripts', 'change_default_jquery', PHP_INT_MAX );
+function change_default_jquery( ){
+	wp_dequeue_script( 'jquery');
+	wp_deregister_script( 'jquery');   
+}
+//-----------------------------------------------------------------------------------------------
+// Приклеем функцию на добавление стилей в хедер
+add_action('wp_print_styles', 'add_styles');
+// Добавление стилей
+function add_styles() {
+    // Если мы в админке - ничего не делаем
+	if(is_admin()) return false;
 	
+    wp_enqueue_style( 'normalize', 'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css' );
 	wp_enqueue_style( 'uikit', 'https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/css/uikit.min.css' );
 	wp_enqueue_style( 'style', get_template_directory_uri().'/style.css?1043' );
 	wp_enqueue_style( 'custom', get_template_directory_uri().'/css/custom.css?1043');
 }
+//-----------------------------------------------------------------------------------------------
+// Приклеем функцию на добавление скриптов в футер
+add_action('wp_footer', 'add_scripts');
+// Добавление скриптов
+function add_scripts() {
+	// Если мы в админке - ничего не делаем
+	if(is_admin()) return false;
+	
+    // Свой JQuery
+    wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js','','',true);
 
-add_action('wp_footer', 'add_scripts'); // приклеем ф-ю на добавление скриптов в футер
-function add_scripts() { // добавление скриптов
-	
-	if(is_admin()) return false; // если мы в админке - ничего не делаем
-	
 	wp_enqueue_script('uikit', 'https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/js/uikit.min.js','','',true);
 	wp_enqueue_script('uikit-icons', 'https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/js/uikit-icons.min.js','','',true);
 	wp_enqueue_script('imask', 'https://cdnjs.cloudflare.com/ajax/libs/imask/7.1.3/imask.min.js','','',true);
 	
 	wp_enqueue_script('main-script', get_template_directory_uri().'/js/app.js?1043','','',true);
 }
-
+//-----------------------------------------------------------------------------------------------
+add_action('init', 'add_jquery');
 function add_jquery() {
 	wp_enqueue_script( 'jquery' );
 }    
-
-add_action('init', 'add_jquery');
-
-//Подключение main-script как модуля
+//-----------------------------------------------------------------------------------------------
+// Подключение main-script как модуля
 add_filter('script_loader_tag', 'add_type_attribute' , 10, 3);
 function add_type_attribute($tag, $handle, $src) {
     // if not your script, do nothing and return original $tag
@@ -38,20 +56,16 @@ function add_type_attribute($tag, $handle, $src) {
     $tag = '<script type="module" src="' . esc_url( $src ) . '"></script>';
     return $tag;
 }
-
-add_theme_support('menus');
-add_theme_support( 'post-thumbnails' );
-
+//-----------------------------------------------------------------------------------------------
 // Настройки краткого описания
 add_filter( 'excerpt_length', function(){
 	return 30;
 } );
-
+//-----------------------------------------------------------------------------------------------
 add_filter( 'excerpt_more', function( $more ) {
 	return '...';
 } );
-//  //
-
+//-----------------------------------------------------------------------------------------------
 // Добавление NOFOLLOW к NOINDEX (yoast)
 add_filter( 'wpseo_robots_array', 'set_nofollow_for_pages' );
 function set_nofollow_for_pages( $robots ) {
@@ -61,9 +75,8 @@ function set_nofollow_for_pages( $robots ) {
   
     return $robots;
 }
-//  //
-
-// редактирование yoast breadcrumb
+//-----------------------------------------------------------------------------------------------
+// Редактирование yoast breadcrumb
 add_filter( 'wpseo_breadcrumb_links', 'breadcrumb_links_filter' );
 function breadcrumb_links_filter( $crumbs ){
 	foreach($crumbs as &$crumb){
@@ -74,8 +87,7 @@ function breadcrumb_links_filter( $crumbs ){
 
 	return $crumbs;
 }
-//  //
-
+//-----------------------------------------------------------------------------------------------
 // Отправка формы
 add_action( 'wp_ajax_sendForm', 'sendForm' );
 add_action( 'wp_ajax_nopriv_sendForm', 'sendForm' );
@@ -98,13 +110,10 @@ function sendForm($attr) {
 	wp_mail($to, $subject, $message, $headers);
 	die();
 }
-//  //
-
+//-----------------------------------------------------------------------------------------------
 // Изменение порядка полей формы комментов
 add_action( 'comment_form_fields', 'editCommentFormDir', 25 );
 function editCommentFormDir( $comment_fields ) {
- 
- 	// print_r( $comment_fields );
 	// правила сортировки
 	$order = array( 'author', 'email', 'comment' );
  
@@ -118,16 +127,14 @@ function editCommentFormDir( $comment_fields ) {
 	return $new_fields;
  
 }
-//  //
-
-// Скрипт WP для формы комментов
+//-----------------------------------------------------------------------------------------------
+// Встроенный скрипт WP для формы комментов
+add_action( 'wp_enqueue_scripts', 'enqueue_comment_reply' );
 function enqueue_comment_reply() {
 	if( is_singular() )
 		wp_enqueue_script('comment-reply');
 }
-add_action( 'wp_enqueue_scripts', 'enqueue_comment_reply' );
-//  //
-
+//-----------------------------------------------------------------------------------------------
 // Шорткод блока с содержанием по заголовкам
 add_shortcode( 'contents', 'contentsSection' );
 function contentsSection( $atts ) {
@@ -144,6 +151,5 @@ function contentsSection( $atts ) {
 	<?php
 	return ob_get_clean();
 }
-//  //
-
+//-----------------------------------------------------------------------------------------------
 ?>
