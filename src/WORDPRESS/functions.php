@@ -56,10 +56,20 @@ function add_type_attribute($tag, $handle, $src) {
     return $tag;
 }
 //-----------------------------------------------------------------------------------------------
-// Настройки краткого описания
+// Настройки длины краткого описания для Кастомных типов записей
+function trim_custom_excerpt( $excerpt ) {
+	if ( has_excerpt() ) {
+		$excerpt = wp_trim_words( get_the_excerpt(), apply_filters( "excerpt_length", 20 ) );
+	}
+
+	return $excerpt;
+}
+add_filter( "the_excerpt", "trim_custom_excerpt", 999 );
+//-----------------------------------------------------------------------------------------------
+// Настройки длины автогенерируемого краткого описания
 add_filter( 'excerpt_length', function(){
-	return 30;
-} );
+	return 20;
+}, 999 );
 //-----------------------------------------------------------------------------------------------
 add_filter( 'excerpt_more', function( $more ) {
 	return '...';
