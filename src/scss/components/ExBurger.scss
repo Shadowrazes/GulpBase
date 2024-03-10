@@ -1,35 +1,31 @@
-.burger{
-    display: none;
-
-    &__button {
+.header {
+    &__burger-btn {
+        display: none;
         position: relative;
         width: 40px;
         height: 40px;
-        background: $bodyColor;
-        border-radius: 50%;
+        background: $btnBgColor;
         padding: 10px;
         border: 0;
-        
+
         &_active {
-            & .burger {
-                &__line {
-                    &:nth-child(1) {
-                        top: calc(50%);
-                        transform: translate(-50%, -50%) rotate(-135deg);
-                    }
-                    &:nth-child(2) {
-                        opacity: 0;
-                    }
-                    &:nth-child(3) {
-                        top: calc(50%);
-                        transform: translate(-50%, -50%) rotate(135deg);
-                    }
+            .header__burger-line{
+                &:nth-child(1) {
+                    top: calc(50%);
+                    transform: translate(-50%, -50%) rotate(-135deg);
+                }
+                &:nth-child(2) {
+                    opacity: 0;
+                }
+                &:nth-child(3) {
+                    top: calc(50%);
+                    transform: translate(-50%, -50%) rotate(135deg);
                 }
             }
         }
     }
 
-    &__line {
+    &__burger-line {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -37,7 +33,7 @@
         height: 3px;
         width: 20px;
         border-radius: 10px;
-        background: $baseColor;
+        background: $btnColor;
         transition: .3s;
         &:nth-child(1) {
             top: calc(50% - 6px);
@@ -49,7 +45,9 @@
 }
 
 @include media($tablet){
-    .burger {
-        display: block;
+    .header {
+        &__burger-btn {
+            display: block;
+        }
     }
 }

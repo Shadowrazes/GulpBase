@@ -17,10 +17,9 @@ function add_styles() {
     // Если мы в админке - ничего не делаем
 	if(is_admin()) return false;
 	
-    wp_enqueue_style( 'normalize', 'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css' );
-	wp_enqueue_style( 'uikit', 'https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/css/uikit.min.css' );
-	wp_enqueue_style( 'style', get_template_directory_uri().'/style.css?1043' );
-	wp_enqueue_style( 'custom', get_template_directory_uri().'/css/custom.css?1043');
+    wp_enqueue_style( 'uikit', get_template_directory_uri().'/static/uikit-3.16.24.min.css' );
+	wp_enqueue_style( 'style', get_template_directory_uri().'/style.css?1044' );
+	wp_enqueue_style( 'custom', get_template_directory_uri().'/css/custom.css?1044');
 }
 //-----------------------------------------------------------------------------------------------
 // Приклеем функцию на добавление скриптов в футер
@@ -31,13 +30,13 @@ function add_scripts() {
 	if(is_admin()) return false;
 	
     // Свой JQuery
-    wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js','','',true);
+    wp_enqueue_script('jquery', get_template_directory_uri().'/static/jquery.min.js','','',true);
 
-	wp_enqueue_script('uikit', 'https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/js/uikit.min.js','','',true);
-	wp_enqueue_script('uikit-icons', 'https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/js/uikit-icons.min.js','','',true);
-	wp_enqueue_script('imask', 'https://cdnjs.cloudflare.com/ajax/libs/imask/7.1.3/imask.min.js','','',true);
+	wp_enqueue_script('uikit', get_template_directory_uri().'/static/uikit-3.16.24.min.js','','',true);
+	wp_enqueue_script('uikit-icons', get_template_directory_uri().'/static/uikit-icons-3.16.24.min.js','','',true);
+	wp_enqueue_script('imask', get_template_directory_uri().'/static/imask-7.5.0.min.js','','',true);
 	
-	wp_enqueue_script('main-script', get_template_directory_uri().'/js/app.js?1043','','',true);
+	wp_enqueue_script('main-script', get_template_directory_uri().'/js/app.js?1044','','',true);
 }
 //-----------------------------------------------------------------------------------------------
 add_action('init', 'add_jquery');
@@ -109,6 +108,62 @@ function sendForm($attr) {
 	
 	wp_mail($to, $subject, $message, $headers);
 	die();
+}
+//-----------------------------------------------------------------------------------------------
+// Разрешение на добавление SVG в медиафайлы
+add_filter( 'upload_mimes', 'svg_upload_allow' );
+function svg_upload_allow( $mimes ) {
+	$mimes['svg']  = 'image/svg+xml';
+
+	return $mimes;
+}
+//-----------------------------------------------------------------------------------------------
+// Подмена mime типа SVG
+add_filter( 'wp_check_filetype_and_ext', 'fix_svg_mime_type', 10, 5 );
+function fix_svg_mime_type( $data, $file, $filename, $mimes, $real_mime = '' ){
+
+	// WP 5.1 +
+	if( version_compare( $GLOBALS['wp_version'], '5.1.0', '>=' ) ){
+		$dosvg = in_array( $real_mime, [ 'image/svg', 'image/svg+xml' ] );
+	}
+	else {
+		$dosvg = ( '.svg' === strtolower( substr( $filename, -4 ) ) );
+	}
+
+	// mime тип был обнулен, поправим его
+	// а также проверим право пользователя
+	if( $dosvg ){
+
+		// разрешим
+		if( current_user_can('manage_options') ){
+
+			$data['ext']  = 'svg';
+			$data['type'] = 'image/svg+xml';
+		}
+		// запретим
+		else {
+			$data['ext']  = false;
+			$data['type'] = false;
+		}
+
+	}
+
+	return $data;
+}
+//-----------------------------------------------------------------------------------------------
+// Отображение SVG в медиафайлах
+add_filter( 'wp_prepare_attachment_for_js', 'show_svg_in_media_library' );
+function show_svg_in_media_library( $response ) {
+
+	if ( $response['mime'] === 'image/svg+xml' ) {
+
+		// С выводом названия файла
+		$response['image'] = [
+			'src' => $response['url'],
+		];
+	}
+
+	return $response;
 }
 //-----------------------------------------------------------------------------------------------
 // Изменение порядка полей формы комментов

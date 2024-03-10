@@ -1,17 +1,23 @@
-.burger-menu {
-    z-index: 1000;
+.header {
 
-    &__items {
+    &__burger-menu {
+        z-index: 1000;
+    }
+
+    &__burger-menu-content {
+        padding: 100px 20px 20px;
+        background: $bodyColor;
+    }
+
+    &__burger-menu-items {
         display: flex;
         flex-direction: column;
         text-transform: uppercase;
-        padding: 100px 20px 20px;
         margin: 0;
-        background: $bodyColor;
         margin-bottom: auto;
     }
 
-    &__item {
+    &__burger-menu-item {
         display: flex;
         justify-content: center;
         padding: 10px 0px;
@@ -23,25 +29,25 @@
         }
     }
 
-    &__btn {
+    &__burger-menu-btn {
         width: 100%;
     }
 
-    &__link {
+    &__burger-menu-link {
         color: $textColorDark;
     }
 
-    &__text {
+    &__burger-menu-text {
         color: $textColorDark;
         font-size: 1.5rem;
     }
 
-    &__social-btns {
+    &__burger-menu-social-btns {
         
         justify-content: space-between;
     }
 
-    .header__social-btn {
+    .header__burger-menu-social-btn {
         flex: 0 0 45%;
     }
 }

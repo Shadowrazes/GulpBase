@@ -40,10 +40,9 @@
 
     <div class="header__bottom" uk-sticky="media: 768">
         <div class="uk-position-relative">
-
             <nav class="uk-navbar-container uk-navbar-transparent">
                 <div class="uk-container header__menu-container">
-                    <div uk-navbar="dropbar: true; dropbar-anchor: !.uk-navbar-container; target-y: !.uk-navbar-container">
+                    <div uk-navbar="mode: click; dropbar: true; dropbar-anchor: !.uk-navbar-container; target-y: !.uk-navbar-container">
 
                             <ul class="uk-navbar-nav header__menu">
                                 <li class="uk-active"><a class="header__menu-link" href="#">Главная</a></li>
@@ -181,6 +180,6 @@
             </nav>
         </div>
     </div>
-</header>
 
-@@include('ExBurger-menu.html', {})
+    @@include('ExBurger-menu.html', {})
+</header>

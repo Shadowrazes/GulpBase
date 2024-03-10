@@ -161,11 +161,6 @@ textarea{
     text-align: center;
     gap: 20px;
 
-    &__icon {
-        width: 1em;
-        height: 1em;
-    }
-
     @include any-hover {
         text-decoration: none;
         color: $btnHoverColor;
@@ -176,6 +171,11 @@ textarea{
         fill: none;
     }
 
+    &__icon {
+        width: 1em;
+        height: 1em;
+    }
+
     &_dark {
         color: $btnDarkColor;
         background: $btnDarkBgColor;
@@ -184,6 +184,10 @@ textarea{
             color: $btnHoverDarkColor;
             background: $btnHoverDarkBgColor;
         }
+    }
+
+    &_slim {
+        align-self: center;
     }
 
     &_inactive{

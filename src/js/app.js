@@ -178,20 +178,17 @@ function LoadMapOnScroll(){
 	}
 }
 
-function InitCenteredSliders(){
+async function InitCenteredSliders() {
     let centeredSliders = document.querySelectorAll('.slider_centered');
-    if(centeredSliders.length > 0){
-        centeredSliders.forEach((centeredSlider) =>{
-            UIkit.slider(centeredSlider, {
-                center: true
-            });
+    if (centeredSliders.length > 0) {
+        centeredSliders.forEach((centeredSlider) => {
             let lastSlide = document.querySelector('.slider_centered__item_center');
             UIkit.util.on(centeredSlider, 'itemshown', (event) => {
                 lastSlide.classList.remove('slider_centered__item_center');
                 event.target.classList.add('slider_centered__item_center');
                 lastSlide = event.target;
-            })
-        })
+            });
+        });
     };
 }
 
@@ -210,19 +207,28 @@ async function EnableSubmitOnCheckbox(){
 	});
 }
 
+function InitBurgerMenu() {
+    const burgerNode = document.querySelector('.header__burger-btn');
+    if (burgerNode) {
+        UIkit.modal(document.querySelector('.header__burger-menu'));
+        burgerNode.addEventListener('click', (event) => {
+            burgerNode.classList.toggle('header__burger-btn_active');
+        });
+    }
+}
+
 document.addEventListener('DOMContentLoaded', (event) => {
     // ASYNC
+    InitCenteredSliders();      // Преключение класса центрального слайда при свайпах
     CallbackFormInit();         // Инцициализация всех форм (Маска тел. + ajax на submit)
     EnableSubmitOnCheckbox();   // Активация submit только после согласия с политикой
     // ENDASYNC
 
-    InitCenteredSliders();      // Преключение класса центрального слайда при свайпах
     // InsertPostContents();    // Содержание статьи по заголовкам
     // LoadMapOnScroll();       // Прогрузка карты при скролле
 
     if(isTablet) {
-        const burgerNode = document.querySelector('.burger');
-        new BurgerMenu(burgerNode);
+        InitBurgerMenu();
     }
 
     // Наложение партикла
