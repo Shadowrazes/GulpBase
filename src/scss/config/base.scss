@@ -244,6 +244,16 @@ textarea{
     }
 }
 
+.popup {
+    z-index: 1050;
+    text-align: center;
+
+    &__frame {
+        border-radius: 5px;
+        width: 700px;
+    }
+}
+
 @include media($tablet) {
     html {
         font-size: 11px;

@@ -1,5 +1,3 @@
-import BurgerMenu from './BurgerMenu.js';
-
 const isMobile = document.documentElement.clientWidth <= 640;
 const isTablet = document.documentElement.clientWidth <= 1200;
 const isLaptop = document.documentElement.clientWidth <= 1440;
@@ -135,7 +133,7 @@ async function CallbackFormInit(){
 							})
 						}
 
-                        let successPopupNode = document.querySelector('#callback-popup__success');
+                        let successPopupNode = document.querySelector('#callback-popup-success');
                         // Удалить в проде
 						UIkit.modal(successPopupNode).show();
                         //  //
@@ -217,12 +215,94 @@ function InitBurgerMenu() {
     }
 }
 
+function InitCityPopup() {
+    if (document.cookie.includes("selectedCity")) {
+        return;
+    }
+
+    const cityPopupNode = document.querySelector("#city-popup");
+
+    if(cityPopupNode){
+        const acceptBtn = document.querySelector(".city-popup__accept-btn");
+        const cityPopup = UIkit.modal(cityPopupNode);
+    
+        cityPopup.show();
+    
+        if(acceptBtn){
+            acceptBtn.addEventListener('click', (event) => {
+                let domainSplit = window.location.host.split('.');
+                let subDomain = domainSplit.length > 2 ? window.location.host.split('.')[0] : 'новосибирск';
+    
+                document.cookie = `selectedCity=${subDomain}; path=/; expires=${new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString()}`;
+            });
+        }
+    }
+}
+
+function InitCookieAgree() {
+	if (document.cookie.includes("cookieAgree")) {
+        return;
+    }
+	
+	const cookieNoteNode = document.querySelector("#cookie-note");
+	if(cookieNoteNode){
+		const acceptBtn = cookieNoteNode.querySelector(".cookie-note__accept-btn");
+
+		if(acceptBtn){
+			cookieNoteNode.style.display = "block";
+			acceptBtn.addEventListener('click', (event) => {
+				document.cookie = `cookieAgree=true; path=/; expires=${new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString()}`;
+				cookieNoteNode.style.display = "none";
+			});
+		}
+	}
+}
+
+async function InitLoadMorePosts() {
+    const moreBtn = document.querySelector('.blog__articles-more-btn');
+    if (moreBtn) {
+        jQuery(function ($) {
+            $(".blog__articles-more-btn").on("click", function () {
+                const button = $(this);
+                button.html("Загрузка...");
+
+                const data = {
+                    "action": "load_more",
+                    "page": currentPage
+                }
+
+                $.ajax({
+                    url: "/wp-admin/admin-ajax.php",
+                    data: data,
+                    type: "POST",
+                    success: function (data) {
+                        if (data) {
+                            button.html("Загрузить ещё");
+                            button.prev().prev().append(data);
+                            currentPage++;
+                            if (currentPage == maxPages) {
+                                button.remove();
+                            }
+                        } else {
+                            button.remove();
+                        }
+                    }
+                });
+            });
+        });
+    }
+}
+
 document.addEventListener('DOMContentLoaded', (event) => {
     // ASYNC
     InitCenteredSliders();      // Преключение класса центрального слайда при свайпах
     CallbackFormInit();         // Инцициализация всех форм (Маска тел. + ajax на submit)
     EnableSubmitOnCheckbox();   // Активация submit только после согласия с политикой
-    // ENDASYNC
+    // InitLoadMorePosts();        // Инит кнопки "Загрузить еще" для постов, см. WP ExBlog.php, functions.php
+    // END ASYNC
+
+    InitCityPopup();
+	InitCookieAgree();
 
     // InsertPostContents();    // Содержание статьи по заголовкам
     // LoadMapOnScroll();       // Прогрузка карты при скролле

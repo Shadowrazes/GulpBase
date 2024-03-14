@@ -57,6 +57,7 @@ function add_type_attribute($tag, $handle, $src) {
 }
 //-----------------------------------------------------------------------------------------------
 // Настройки длины краткого описания для Кастомных типов записей
+add_filter( "the_excerpt", "trim_custom_excerpt", 999 );
 function trim_custom_excerpt( $excerpt ) {
 	if ( has_excerpt() ) {
 		$excerpt = wp_trim_words( get_the_excerpt(), apply_filters( "excerpt_length", 20 ) );
@@ -64,7 +65,6 @@ function trim_custom_excerpt( $excerpt ) {
 
 	return $excerpt;
 }
-add_filter( "the_excerpt", "trim_custom_excerpt", 999 );
 //-----------------------------------------------------------------------------------------------
 // Настройки длины автогенерируемого краткого описания
 add_filter( 'excerpt_length', function(){
@@ -88,9 +88,15 @@ function set_nofollow_for_pages( $robots ) {
 // Редактирование yoast breadcrumb
 add_filter( 'wpseo_breadcrumb_links', 'breadcrumb_links_filter' );
 function breadcrumb_links_filter( $crumbs ){
-	foreach($crumbs as &$crumb){
-		if($crumb['url'] == 'https://site.ru/category/blog'){
-			$crumb = array('text' => 'Блог', 'url' => 'https://site.ru/blog', 'allow_html' => 1);
+	if(count($crumbs) > 1){
+		if(str_contains($crumbs[1]['url'], 'blog') && $crumbs[1]['id'] != 10){
+			$blogNode = [
+				'url' => '/blog/',
+				'text' => 'Блог',
+				'allow_html' => 1
+			];
+
+			array_splice($crumbs, 1, 0, [$blogNode]);
 		}
 	}
 
@@ -215,6 +221,44 @@ function contentsSection( $atts ) {
     </ul> 
 	<?php
 	return ob_get_clean();
+}
+//-----------------------------------------------------------------------------------------------
+// Прогруза новой пачки постов
+add_action("wp_ajax_load_more", "load_posts");
+add_action("wp_ajax_nopriv_load_more", "load_posts");
+function load_posts(){
+    $posts = new WP_Query([ 'post_type' => 'blog', 'posts_per_page' => 9, 'offset' => $_POST['page'] * 9]);
+    $html = '';
+
+    if ($posts->have_posts()): 
+		while ($posts->have_posts()): 
+			$posts->the_post();
+			ob_start();
+			?>
+			<div class="text article-card blog__articles-card">
+				<a href="<?=get_the_permalink()?>" class="article-card__img-wrapper">
+					<? echo get_the_post_thumbnail(get_the_ID(), 'full', array( 'class' => 'article-card__img')); ?>
+				</a>
+				<div class="article-card__preview">
+					<h3 class="article-card__title">
+						<a href="<?=get_the_permalink()?>" class="article-card__link"><?=the_title()?></a>
+					</h3>
+					<span class="article-card__descr"><?= wp_trim_words(get_the_excerpt(), 20, '...') ?></span>
+					<a href="<?=get_the_permalink()?>" class="article-card__more-link">Подробнее</a>
+				</div>
+				<div class="article-card__meta-container">
+					<div class="article-card__meta-wrapper">
+						<span class="article-card__meta-date"><?=the_time('d.m.Y')?></span>
+					</div>
+				</div>
+			</div>
+			<?
+			$html .= ob_get_clean();
+        endwhile;
+    endif;
+
+    wp_reset_postdata();
+    die($html);
 }
 //-----------------------------------------------------------------------------------------------
 ?>

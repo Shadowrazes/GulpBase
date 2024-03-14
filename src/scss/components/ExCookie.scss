@@ -1,0 +1,40 @@
+.cookie-note {
+	display: none;
+    z-index: 2000;
+    position: fixed;
+    bottom: 0px;
+    width: 80%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 15px;
+    background-color: $cardColor;
+    border: 1px solid $borderColor;
+    border-radius: 5px 5px 0 0;
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    &__accept-btn {
+        flex-shrink: 0;
+    }
+}
+
+@include media($tablet) {
+    .cookie-note {
+        width: 100%;
+    }
+}
+
+@include media($mobile) {
+    .cookie-note {
+        &__content {
+            text-align: center;
+            flex-direction: column;
+        }
+    }
+}

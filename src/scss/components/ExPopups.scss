@@ -1,0 +1,38 @@
+.popup {
+    z-index: 1050;
+    text-align: center;
+
+    &__frame {
+        border-radius: 5px;
+        width: 700px;
+    }
+}
+
+.callback-popup{
+    &__frame {
+
+    }
+
+    &__form {
+    }
+
+    &__title {
+        
+    }
+
+    &__content {
+
+    }
+
+    &__phone-input {
+        
+    }
+}
+
+@include media($tablet){
+    
+}
+
+@include media($mobile){
+
+}

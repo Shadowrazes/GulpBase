@@ -1,0 +1,64 @@
+<div id="city-popup" class="popup city-popup" uk-modal-full uk-modal>
+    <div class="uk-modal-body uk-margin-auto-vertical uk-modal-dialog popup__frame">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+
+        <div class="uk-form-stacked">
+            <div class="uk-modal-header uk-flex uk-flex-column uk-flex-middle">
+                <span class="text_huge">Ваш город Новосибирск?</span>
+                <span class="text">Если нет, то выберите регион, в котором вы находитесь.</span>
+            </div>
+            <div class="uk-modal-body uk-flex uk-flex-column uk-flex-middle text">
+                <a href="https://кемерово.независимость-цса.рф/" class="uk-margin-small">Кемерово</a>
+                <a href="https://краснодар.независимость-цса.рф/" class="uk-margin-small">Краснодар</a>
+                <a href="https://владивосток.независимость-цса.рф/" class="uk-margin-small">Владивосток</a>
+            </div>
+            <div class="uk-modal-footer uk-text-center">
+                <button class="uk-modal-close btn city-popup__accept-btn" type="button">Да, мой город Новосибирск</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="callback-popup" class="popup callback-popup" uk-modal-full uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical popup__frame">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+
+        <form class="uk-form-stacked callback-popup__form">
+            <div class="uk-modal-header">
+                <span class="text_huge callback-popup__title">Консультация у специалиста</span>
+            </div>
+            <div class="uk-modal-body callback-popup__content">
+                <div class="uk-margin">
+                    <span class="text callback-popup__descr">
+                        Наш центр оказывает профессиональную помощь людям, оказавшимся в трудной 
+                        жизненной ситуации. Для связи с нами, оставьте свои контакты в форме ниже, 
+                        или позвоните нам по номеру телефона <a href="tel:73832552829">+7(383) 255-28-29</a>
+                    </span>
+                </div>
+                <div class="uk-margin">
+                    <div class="uk-form-controls">
+                        <input type="text" name="phone" class="uk-input callback-popup__phone-input" placeholder="Ваш телефон" required="" inputmode="text">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <span class="text callback-popup__policy-text">Отправляя заявку, вы соглашаетесь <a class="callback-popup__policy-link" href="/privacy-policy/">политикой обработки данных</a></span>
+                </div>
+            </div>
+            <div class="uk-modal-footer uk-text-center">
+                <button type="submit" class="btn callback-popup__submit-btn">Отправить</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="callback-popup-success" class="popup callback-popup-success" uk-modal-full uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical popup__frame">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header">
+            <span class="text_huge">Обращение отправлено</span>
+        </div>
+        <div class="uk-modal-body">
+            <span class="text">Мы свяжемся с вами в ближайшее время!</span>
+        </div>
+    </div>
+</div>
