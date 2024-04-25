@@ -1,0 +1,101 @@
+<div id="cookie-note" class="cookie-note">
+	<div class="cookie-note__content">
+		<span class="cookie-note__text text">
+			Мы используем файлы cookies для улучшения работы сайта. 
+			Оставаясь на нашем сайте, вы соглашаетесь с условиями использования cookies. 
+			Чтобы ознакомиться с нашими Положениями о конфиденциальности, 
+			<a href="/privacy">нажмите здесь</a>.
+		</span>
+		<button class="cookie-note__accept-btn">Я согласен</button>
+	</div>
+</div>
+
+<style>
+    .cookie-note {
+    	display: none;
+        z-index: 2000;
+        position: fixed;
+        bottom: 0px;
+        width: 60%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        padding: 15px;
+        background-color: #FFFFFF;
+        border: 1px solid #E4E4E4;
+        border-radius: 5px 5px 0 0;
+    }
+    
+    .cookie-note__content {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .cookie-note__accept-btn {
+        padding: 5px 20px;
+        font-size: 16px;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        color: #ffffff;
+        font-family: 'Raleway',Arial,sans-serif;
+        line-height: 1.55;
+        font-weight: 600;
+        border-radius: 10px;
+        background-color: #d0153a;
+        background-position: center center;
+        border-color: transparent;
+        border-style: solid;
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    }
+    
+    .cookie-note__accept-btn:hover {
+        background-color: #e90d39;
+        background-image: none;
+        cursor: pointer;
+    }
+
+@media (max-width: 1100.98px) {
+	.cookie-note {
+		width: 100%;
+	}
+}
+
+@media (max-width: 768.98px) {
+	.cookie-note__content {
+		text-align: center;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+	}
+}
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        if (document.cookie.includes("cookieAgree")) {
+            return;
+        }
+    	
+    	const cookieNoteNode = document.querySelector("#cookie-note");
+    	if(cookieNoteNode){
+    		const acceptBtn = cookieNoteNode.querySelector(".cookie-note__accept-btn");
+    
+    		if(acceptBtn){
+    			cookieNoteNode.style.display = "block";
+    			acceptBtn.addEventListener('click', (event) => {
+    				document.cookie = `cookieAgree=true; path=/; expires=${new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString()}`;
+    				cookieNoteNode.style.display = "none";
+    			});
+    		}
+    	}
+    })
+</script>
