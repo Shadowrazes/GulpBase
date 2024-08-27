@@ -206,11 +206,14 @@ async function EnableSubmitOnCheckbox(){
 }
 
 function InitBurgerMenu() {
-    const burgerNode = document.querySelector('.header__burger-btn');
-    if (burgerNode) {
-        UIkit.modal(document.querySelector('.header__burger-menu'));
-        burgerNode.addEventListener('click', (event) => {
-            burgerNode.classList.toggle('header__burger-btn_active');
+    const burgerBtn = document.querySelector('.header__burger-btn');
+    if (burgerBtn) {
+        UIkit.util.on('.header__burger-menu', 'show', () => {
+            burgerBtn.classList.add('header__burger-btn_active');
+        });
+
+        UIkit.util.on('.header__burger-menu', 'hide', () => {
+            burgerBtn.classList.remove('header__burger-btn_active');
         });
     }
 }
