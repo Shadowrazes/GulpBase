@@ -1,0 +1,25 @@
+<section class="filter">
+    <div class="container">
+        <div class="filter__select">
+            <input type="hidden" name="project" id="apartment-project" value="0">
+            <div class="filter__select-wrapper">
+                <a class="text filter__select-btn-wrapper" href>
+                    <div class="filter__select-btn">
+                        <span class="filter__select-label">Проекты</span>
+                        <span class="filter__select-value">Все</span> 
+                    </div>
+                    <span uk-drop-parent-icon="icon: triangle-down; ratio: 1.5;"></span>
+                </a>
+                <!-- JS InitDropSelect() -->
+                <div id="filter-dropdown" class="text filter__select-drop" uk-dropdown="offset: -1; pos: bottom-center; delay-hide: 0; mode: click;">
+                    <ul class="uk-nav filter__select-item-wrapper">
+                        <li><a class="filter__select-item" data-value="0">Все</a></li>
+                        <li><a class="filter__select-item" data-value="1">1</a></li>
+                        <li><a class="filter__select-item" data-value="2">2</a></li>
+                        <li><a class="filter__select-item" data-value="3">3</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

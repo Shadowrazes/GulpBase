@@ -296,6 +296,22 @@ async function InitLoadMorePosts() {
     }
 }
 
+function InitDropSelect() {
+    let selects = document.querySelectorAll('.filter__select-item');
+    let selectedValue = document.querySelector('.filter__select-value');
+    let selectInput = document.querySelector('#apartment-project');
+    let drop = document.querySelector('#filter-dropdown');
+    let ukdrop = UIkit.dropdown(drop);
+
+    selects.forEach((select) => {
+        select.addEventListener('click', (event) => {
+            ukdrop.hide();
+            selectedValue.textContent = select.textContent;
+            selectInput.value = select.dataset.value;
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', (event) => {
     // ASYNC
     InitCenteredSliders();      // Преключение класса центрального слайда при свайпах
@@ -306,6 +322,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     InitCityPopup();
 	InitCookieAgree();
+    InitDropSelect();
 
     // InsertPostContents();    // Содержание статьи по заголовкам
     // LoadMapOnScroll();       // Прогрузка карты при скролле

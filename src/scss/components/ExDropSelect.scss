@@ -1,0 +1,66 @@
+.filter {
+
+    &__select {
+        width: 20%;
+        position: relative;
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    &__select-wrapper {
+        border-radius: 20px;
+        background: #f6f6f6;
+        padding: 20px;
+    }
+
+    &__select-btn-wrapper {
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__select-btn {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-weight: 600;
+    }
+
+    &__select-label {
+        color: #cbcbcb;
+    }
+
+    &__select-value-wrapper {
+    }
+
+    &__select-value {
+        color: black;
+    }
+
+    &__select-drop {
+        background: #f6f6f6;
+        width: 100%;
+        border-radius: 0 0 20px 20px;
+    }
+
+    &__select-item {
+        color: black;
+    }
+}
+
+@include media($tablet){
+    .filter {
+
+        &__select {
+            width: 100%;
+            position: relative;
+        }
+    }
+}
+
+@include media($mobile){
+
+}
