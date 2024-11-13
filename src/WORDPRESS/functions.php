@@ -18,8 +18,8 @@ function add_styles() {
 	if(is_admin()) return false;
 	
     wp_enqueue_style( 'uikit', get_template_directory_uri().'/static/uikit-3.16.24.min.css' );
-	wp_enqueue_style( 'style', get_template_directory_uri().'/style.css?v='.filemtime( get_template_directory_uri().'/style.css'));
-	wp_enqueue_style( 'custom', get_template_directory_uri().'/css/custom.css?v='.filemtime( get_template_directory_uri().'/css/custom.css'));
+	wp_enqueue_style( 'style', get_template_directory_uri().'/style.css?v='.filemtime( get_template_directory().'/style.css'));
+	wp_enqueue_style( 'custom', get_template_directory_uri().'/css/custom.css?v='.filemtime( get_template_directory().'/css/custom.css'));
 }
 //-----------------------------------------------------------------------------------------------
 // Приклеем функцию на добавление скриптов в футер
@@ -36,7 +36,7 @@ function add_scripts() {
 	wp_enqueue_script('uikit-icons', get_template_directory_uri().'/static/uikit-icons-3.16.24.min.js','','',true);
 	wp_enqueue_script('imask', get_template_directory_uri().'/static/imask-7.5.0.min.js','','',true);
 	
-	wp_enqueue_script('main-script', get_template_directory_uri() . '/js/app.js', array('jquery-core'), filemtime( get_template_directory_uri() . '/js/app.js' ), true);
+	wp_enqueue_script('main-script', get_template_directory_uri() . '/js/app.js', array('jquery-core'), filemtime( get_template_directory() . '/js/app.js' ), true);
 }
 //-----------------------------------------------------------------------------------------------
 add_action('init', 'add_jquery');
